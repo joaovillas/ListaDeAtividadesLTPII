@@ -49,7 +49,7 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         JPanel2.setBackground(new java.awt.Color(102, 102, 0));
-        JPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         FieldLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         FieldLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -79,14 +79,14 @@ public class TelaLoginSenha extends javax.swing.JFrame {
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(LabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(LabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(FieldLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(FieldLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
         );
 
         JPanel3.setBackground(new java.awt.Color(102, 102, 0));
-        JPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         LabelSenha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         LabelSenha.setForeground(new java.awt.Color(255, 255, 255));
