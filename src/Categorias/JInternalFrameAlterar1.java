@@ -33,6 +33,8 @@ public class JInternalFrameAlterar1 extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Categorias / Alterar");
+        setToolTipText("");
 
         jLabel1.setText("Aba categorias Alterar");
 

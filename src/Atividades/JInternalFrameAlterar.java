@@ -33,6 +33,8 @@ public class JInternalFrameAlterar extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Atividades / Alterar");
+        setToolTipText("");
 
         jLabel1.setText("Aba Alterar");
 

@@ -29,6 +29,12 @@ public class JInternalFrameSobre extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("Sobre");
+
         jLabel1.setText("Aba Sobre");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

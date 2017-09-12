@@ -33,6 +33,7 @@ public class JInternalFrameRemover1 extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Categorias / Remover");
 
         jLabel1.setText("Aba categorias Remover");
 

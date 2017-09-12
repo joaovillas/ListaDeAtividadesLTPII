@@ -33,6 +33,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Atividades / Inserir");
 
         jLabel1.setText("Aba Inserir");
 

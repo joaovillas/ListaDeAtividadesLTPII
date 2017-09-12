@@ -33,6 +33,7 @@ public class JInternalFrameRelatorios1 extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Categorias / Relatórios");
 
         jLabel1.setText("Aba categorias Relatorios");
 
