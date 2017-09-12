@@ -5,17 +5,59 @@
  */
 package TelaPrincipal;
 
+import Atividades.JInternalFrameInserir;
+import Atividades.JInternalFrameAlterar;
+import Atividades.JInternalFrameRemover;
+import Atividades.JInternalFrameRelatorios;
+
+import Categorias.JInternalFrameInserir1;
+import Categorias.JInternalFrameAlterar1;
+import Categorias.JInternalFrameRemover1;
+import Categorias.JInternalFrameRelatorios1;
+
+import Ajuda.JInternalFrameSobre;
+
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author 029161041
  */
 public class JFrameTelaPrincipal extends javax.swing.JFrame {
+    //Atividades
+    private JInternalFrameInserir jInternalFrameInserir;
+    private JInternalFrameAlterar jInternalFrameAlterar;
+    private JInternalFrameRemover jInternalFrameRemover;
+    private JInternalFrameRelatorios jInternalFrameRelatorios;
+    
+    //Categorias
+    private JInternalFrameInserir1 jInternalFrameInserir1;
+    private JInternalFrameAlterar1 jInternalFrameAlterar1;
+    private JInternalFrameRemover1 jInternalFrameRemover1;
+    private JInternalFrameRelatorios1 jInternalFrameRelatorios1;
+    
+    //Ajuda
+    private JInternalFrameSobre jInternalFrameSobre;
 
     /**
      * Creates new form JFrameTelaPrincipal
      */
     public JFrameTelaPrincipal() {
         initComponents();
+        //Atividades
+        jInternalFrameInserir = new JInternalFrameInserir();
+        jInternalFrameAlterar = new JInternalFrameAlterar();
+        jInternalFrameRemover = new JInternalFrameRemover();
+        jInternalFrameRelatorios = new JInternalFrameRelatorios();
+        
+        //Categorias
+        jInternalFrameInserir1 = new JInternalFrameInserir1();
+        jInternalFrameAlterar1 = new JInternalFrameAlterar1();
+        jInternalFrameRemover1 = new JInternalFrameRemover1();
+        jInternalFrameRelatorios1 = new JInternalFrameRelatorios1();
+  
+        //Ajuda
+        jInternalFrameSobre = new JInternalFrameSobre();
     }
 
     /**
@@ -27,7 +69,7 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDesktopPaneTelaPrincipal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
@@ -43,7 +85,6 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
@@ -51,20 +92,20 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("TELA PRINCIPAL AQUI");
 
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneTelaPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jDesktopPaneTelaPrincipalLayout = new javax.swing.GroupLayout(jDesktopPaneTelaPrincipal);
+        jDesktopPaneTelaPrincipal.setLayout(jDesktopPaneTelaPrincipalLayout);
+        jDesktopPaneTelaPrincipalLayout.setHorizontalGroup(
+            jDesktopPaneTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(0, Short.MAX_VALUE))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        jDesktopPaneTelaPrincipalLayout.setVerticalGroup(
+            jDesktopPaneTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(139, Short.MAX_VALUE))
@@ -73,15 +114,35 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jMenu5.setText("Atividades");
 
         atividadesInserir.setText("Inserir");
+        atividadesInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atividadesInserirActionPerformed(evt);
+            }
+        });
         jMenu5.add(atividadesInserir);
 
         atividadesAlterar.setText("Alterar");
+        atividadesAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atividadesAlterarActionPerformed(evt);
+            }
+        });
         jMenu5.add(atividadesAlterar);
 
         ativdadesRemover.setText("Remover");
+        ativdadesRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ativdadesRemoverActionPerformed(evt);
+            }
+        });
         jMenu5.add(ativdadesRemover);
 
         ativdadesRelatorio.setText("Relatórios");
+        ativdadesRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ativdadesRelatorioActionPerformed(evt);
+            }
+        });
         jMenu5.add(ativdadesRelatorio);
 
         jMenuBar1.add(jMenu5);
@@ -89,15 +150,35 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jMenu6.setText("Categorias");
 
         categoriasInserir.setText("Inserir");
+        categoriasInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriasInserirActionPerformed(evt);
+            }
+        });
         jMenu6.add(categoriasInserir);
 
         categoriasAlterar.setText("Alterar");
+        categoriasAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriasAlterarActionPerformed(evt);
+            }
+        });
         jMenu6.add(categoriasAlterar);
 
         categoriasRemover.setText("Remover");
+        categoriasRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriasRemoverActionPerformed(evt);
+            }
+        });
         jMenu6.add(categoriasRemover);
 
         categoriasRelatorio.setText("Relatórios");
+        categoriasRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriasRelatorioActionPerformed(evt);
+            }
+        });
         jMenu6.add(categoriasRelatorio);
 
         jMenuBar1.add(jMenu6);
@@ -105,15 +186,21 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jMenu7.setText("Ajuda");
 
         jMenuItem1.setText("Sobre");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem1);
 
         jMenuBar1.add(jMenu7);
 
-        jMenu1.setText("Logout");
-
-        jMenuItem2.setText("Sair");
-        jMenu1.add(jMenuItem2);
-
+        jMenu1.setText("Sair");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu1MousePressed(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -122,17 +209,133 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPaneTelaPrincipal)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jDesktopPaneTelaPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         setSize(new java.awt.Dimension(484, 397));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void atividadesInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atividadesInserirActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameInserir.isVisible())
+        {
+            jInternalFrameInserir.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameInserir).setVisible(true);
+        }
+    }//GEN-LAST:event_atividadesInserirActionPerformed
+
+    private void atividadesAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atividadesAlterarActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameAlterar.isVisible())
+        {
+            jInternalFrameAlterar.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameAlterar).setVisible(true);
+        }
+    }//GEN-LAST:event_atividadesAlterarActionPerformed
+
+    private void ativdadesRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativdadesRemoverActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameRemover.isVisible())
+        {
+            jInternalFrameRemover.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameRemover).setVisible(true);
+        }
+    }//GEN-LAST:event_ativdadesRemoverActionPerformed
+
+    private void ativdadesRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativdadesRelatorioActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameRelatorios.isVisible())
+        {
+            jInternalFrameRelatorios.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameRelatorios).setVisible(true);
+        }
+    }//GEN-LAST:event_ativdadesRelatorioActionPerformed
+
+    private void categoriasInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasInserirActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameInserir1.isVisible())
+        {
+            jInternalFrameInserir1.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameInserir1).setVisible(true);
+        }
+    }//GEN-LAST:event_categoriasInserirActionPerformed
+
+    private void categoriasAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasAlterarActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameAlterar1.isVisible())
+        {
+            jInternalFrameAlterar1.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameAlterar1).setVisible(true);
+        }
+    }//GEN-LAST:event_categoriasAlterarActionPerformed
+
+    private void categoriasRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasRemoverActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameRemover1.isVisible())
+        {
+            jInternalFrameRemover1.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameRemover1).setVisible(true);
+        }
+    }//GEN-LAST:event_categoriasRemoverActionPerformed
+
+    private void categoriasRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasRelatorioActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameRelatorios1.isVisible())
+        {
+            jInternalFrameRelatorios1.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameRelatorios1).setVisible(true);
+        }  
+    }//GEN-LAST:event_categoriasRelatorioActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+          if (jInternalFrameSobre.isVisible())
+        {
+            jInternalFrameSobre.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameSobre).setVisible(true);
+        }  
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MousePressed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu1MousePressed
+                                     
     /**
      * @param args the command line arguments
      */
@@ -178,7 +381,7 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem categoriasInserir;
     private javax.swing.JMenuItem categoriasRelatorio;
     private javax.swing.JMenuItem categoriasRemover;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPaneTelaPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
@@ -186,6 +389,5 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
