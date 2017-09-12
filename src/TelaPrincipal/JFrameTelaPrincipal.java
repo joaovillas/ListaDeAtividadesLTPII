@@ -89,8 +89,10 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
 
+        jDesktopPaneTelaPrincipal.setDoubleBuffered(true);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("TELA PRINCIPAL AQUI");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/DAItEMgJ_400x400.png"))); // NOI18N
 
         jDesktopPaneTelaPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -99,16 +101,14 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jDesktopPaneTelaPrincipalLayout.setHorizontalGroup(
             jDesktopPaneTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(0, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         jDesktopPaneTelaPrincipalLayout.setVerticalGroup(
             jDesktopPaneTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
+                .addGap(0, 223, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jMenu5.setText("Atividades");
