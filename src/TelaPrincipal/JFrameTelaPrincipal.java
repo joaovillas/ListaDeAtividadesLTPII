@@ -92,7 +92,7 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jDesktopPaneTelaPrincipal.setDoubleBuffered(true);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/DAItEMgJ_400x400.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/21733140_1452124994869053_640976022_n.png"))); // NOI18N
 
         jDesktopPaneTelaPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -101,14 +101,16 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jDesktopPaneTelaPrincipalLayout.setHorizontalGroup(
             jDesktopPaneTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+                .addGap(35, 35, 35))
         );
         jDesktopPaneTelaPrincipalLayout.setVerticalGroup(
             jDesktopPaneTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
-                .addGap(0, 223, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(91, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, Short.MAX_VALUE)
+                .addGap(74, 74, 74))
         );
 
         jMenu5.setText("Atividades");
@@ -219,7 +221,7 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
             .addComponent(jDesktopPaneTelaPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        setSize(new java.awt.Dimension(484, 397));
+        setSize(new java.awt.Dimension(852, 397));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
