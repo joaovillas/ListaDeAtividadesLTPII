@@ -27,50 +27,70 @@ public class JInternalFrameRemover extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextFieldDescricao = new javax.swing.JTextField();
-        jButtonRemover = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
-        jTextFieldCodigo = new javax.swing.JTextField();
-        jLabelCodigo = new javax.swing.JLabel();
-        jLabelTipo = new javax.swing.JLabel();
-        jComboBoxTipo = new javax.swing.JComboBox<>();
-        jLabelDescricao = new javax.swing.JLabel();
-        jTextFieldData = new javax.swing.JFormattedTextField();
-        jLabelData = new javax.swing.JLabel();
+        jLabelMatricula = new javax.swing.JLabel();
+        jTextFieldAtividadesMatricula = new javax.swing.JTextField();
         jLabelNome = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
+        jTextFieldAtividadesNome = new javax.swing.JTextField();
+        jTextFieldAtividadesData = new javax.swing.JFormattedTextField();
+        jLabelData = new javax.swing.JLabel();
+        jTextFieldAtividadesLocal = new javax.swing.JTextField();
         jLabelLocal = new javax.swing.JLabel();
-        jTextFieldLocal = new javax.swing.JTextField();
+        jComboBoxAtividadesTipo = new javax.swing.JComboBox<>();
+        jLabelTipo = new javax.swing.JLabel();
+        jLabelDescricao = new javax.swing.JLabel();
+        jLabelCodigo = new javax.swing.JLabel();
+        jTextFieldAtividadesCodigo = new javax.swing.JTextField();
+        jButtonAtividadesPesquisar = new javax.swing.JButton();
+        jButtonAtividadesRemover = new javax.swing.JButton();
+        jButtonAtividadesCancelar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaAtividadesDescricao = new javax.swing.JTextArea();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Atividades / Remover");
+        setTitle("Remover Atividades");
 
-        jButtonRemover.setText("Remover");
-
-        jButtonCancelar.setText("Cancelar");
-
-        jLabelCodigo.setText("Código:");
-
-        jLabelTipo.setText("Tipo:");
-
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
-
-        jLabelDescricao.setText("Descrição:");
-
-        try {
-            jTextFieldData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabelData.setText("Data:");
+        jLabelMatricula.setText("Matrícula:");
 
         jLabelNome.setText("Nome:");
 
+        try {
+            jTextFieldAtividadesData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldAtividadesData.setEnabled(false);
+
+        jLabelData.setText("Data:");
+
+        jTextFieldAtividadesLocal.setEnabled(false);
+
         jLabelLocal.setText("Local:");
+
+        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jComboBoxAtividadesTipo.setEnabled(false);
+
+        jLabelTipo.setText("Tipo:");
+
+        jLabelDescricao.setText("Descrição:");
+
+        jLabelCodigo.setText("Código:");
+
+        jTextFieldAtividadesCodigo.setEditable(false);
+
+        jButtonAtividadesPesquisar.setText("Pesquisar");
+
+        jButtonAtividadesRemover.setText("Remover");
+        jButtonAtividadesRemover.setEnabled(false);
+
+        jButtonAtividadesCancelar.setText("Cancelar");
+
+        jTextAreaAtividadesDescricao.setColumns(20);
+        jTextAreaAtividadesDescricao.setRows(5);
+        jTextAreaAtividadesDescricao.setEnabled(false);
+        jScrollPane1.setViewportView(jTextAreaAtividadesDescricao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,37 +99,43 @@ public class JInternalFrameRemover extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelCodigo)
+                        .addComponent(jLabelMatricula)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAtividadesMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabelNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldNome))
+                        .addComponent(jTextFieldAtividadesNome))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelDescricao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldDescricao))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelTipo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelData)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldAtividadesData, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelLocal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
+                                .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonRemover)
+                        .addContainerGap()
+                        .addComponent(jLabelCodigo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAtividadesPesquisar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAtividadesRemover)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCancelar)))
+                        .addComponent(jButtonAtividadesCancelar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -118,29 +144,34 @@ public class JInternalFrameRemover extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAtividadesNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelNome))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelCodigo)
-                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelMatricula)
+                        .addComponent(jTextFieldAtividadesMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelData)
                     .addComponent(jLabelTipo)
-                    .addComponent(jTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAtividadesData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelLocal)
-                    .addComponent(jTextFieldLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelDescricao)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancelar)
-                    .addComponent(jButtonRemover)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelCodigo)
+                        .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonAtividadesCancelar)
+                        .addComponent(jButtonAtividadesRemover)
+                        .addComponent(jButtonAtividadesPesquisar))))
         );
 
         pack();
@@ -148,19 +179,23 @@ public class JInternalFrameRemover extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JButton jButtonRemover;
-    private javax.swing.JComboBox<String> jComboBoxTipo;
+    private javax.swing.JButton jButtonAtividadesCancelar;
+    private javax.swing.JButton jButtonAtividadesPesquisar;
+    private javax.swing.JButton jButtonAtividadesRemover;
+    private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelData;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelLocal;
+    private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelTipo;
-    private javax.swing.JTextField jTextFieldCodigo;
-    private javax.swing.JFormattedTextField jTextFieldData;
-    private javax.swing.JTextField jTextFieldDescricao;
-    private javax.swing.JTextField jTextFieldLocal;
-    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaAtividadesDescricao;
+    private javax.swing.JTextField jTextFieldAtividadesCodigo;
+    private javax.swing.JFormattedTextField jTextFieldAtividadesData;
+    private javax.swing.JTextField jTextFieldAtividadesLocal;
+    private javax.swing.JTextField jTextFieldAtividadesMatricula;
+    private javax.swing.JTextField jTextFieldAtividadesNome;
     // End of variables declaration//GEN-END:variables
 }
