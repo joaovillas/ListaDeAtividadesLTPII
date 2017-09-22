@@ -66,9 +66,9 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="170" max="32767" attributes="0"/>
-                  <Component id="ButonLogin" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonLogin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ButtonSair" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="buttonSair" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -88,8 +88,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ButonLogin" alignment="3" max="32767" attributes="0"/>
-                      <Component id="ButtonSair" alignment="3" max="32767" attributes="0"/>
+                      <Component id="buttonLogin" alignment="3" max="32767" attributes="0"/>
+                      <Component id="buttonSair" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -125,7 +125,7 @@
             <Property name="text" type="java.lang.String" value="Senha   :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="ButonLogin">
+        <Component class="javax.swing.JButton" name="buttonLogin">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fc" green="f9" red="d3" type="rgb"/>
@@ -139,10 +139,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButonLoginActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLoginActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ButtonSair">
+        <Component class="javax.swing.JButton" name="buttonSair">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fc" green="f9" red="d3" type="rgb"/>
@@ -156,7 +156,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonSairActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSairActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelLogin">

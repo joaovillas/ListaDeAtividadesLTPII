@@ -1,8 +1,10 @@
 package TelaPrincipal;
 
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import javax.swing.UIManager;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,6 +23,7 @@ public class TelaLoginSenha extends javax.swing.JFrame {
      */
     public TelaLoginSenha() {
         initComponents();
+        getRootPane().setDefaultButton(buttonLogin);
     }
 
     /**
@@ -36,8 +39,8 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         fieldSenha = new javax.swing.JPasswordField();
         fieldLogin = new javax.swing.JTextField();
         LabelSenha = new javax.swing.JLabel();
-        ButonLogin = new javax.swing.JButton();
-        ButtonSair = new javax.swing.JButton();
+        buttonLogin = new javax.swing.JButton();
+        buttonSair = new javax.swing.JButton();
         LabelLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,23 +68,23 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         LabelSenha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         LabelSenha.setText("Senha   :");
 
-        ButonLogin.setBackground(new java.awt.Color(211, 249, 252));
-        ButonLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ButonLogin.setText("Entrar");
-        ButonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButonLogin.addActionListener(new java.awt.event.ActionListener() {
+        buttonLogin.setBackground(new java.awt.Color(211, 249, 252));
+        buttonLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buttonLogin.setText("Entrar");
+        buttonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButonLoginActionPerformed(evt);
+                buttonLoginActionPerformed(evt);
             }
         });
 
-        ButtonSair.setBackground(new java.awt.Color(211, 249, 252));
-        ButtonSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ButtonSair.setText("Sair");
-        ButtonSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ButtonSair.addActionListener(new java.awt.event.ActionListener() {
+        buttonSair.setBackground(new java.awt.Color(211, 249, 252));
+        buttonSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        buttonSair.setText("Sair");
+        buttonSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSairActionPerformed(evt);
+                buttonSairActionPerformed(evt);
             }
         });
 
@@ -105,9 +108,9 @@ public class TelaLoginSenha extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(170, Short.MAX_VALUE)
-                .addComponent(ButonLogin)
+                .addComponent(buttonLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,8 +126,8 @@ public class TelaLoginSenha extends javax.swing.JFrame {
                     .addComponent(fieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ButtonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -143,11 +146,11 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSairActionPerformed
+    private void buttonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_ButtonSairActionPerformed
+    }//GEN-LAST:event_buttonSairActionPerformed
 
-    private void ButonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonLoginActionPerformed
+    private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         String login = fieldLogin.getText();
         String senha = fieldSenha.getText();
 
@@ -165,7 +168,7 @@ public class TelaLoginSenha extends javax.swing.JFrame {
             fieldSenha.setText("");
         }
 
-    }//GEN-LAST:event_ButonLoginActionPerformed
+    }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void fieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSenhaActionPerformed
         // TODO add your handling code here:
@@ -205,17 +208,19 @@ public class TelaLoginSenha extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
+                UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
                 new TelaLoginSenha().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButonLogin;
-    private javax.swing.JButton ButtonSair;
     private javax.swing.JLabel LabelLogin;
     private javax.swing.JLabel LabelSenha;
+    private javax.swing.JButton buttonLogin;
+    private javax.swing.JButton buttonSair;
     private javax.swing.JTextField fieldLogin;
     private javax.swing.JPasswordField fieldSenha;
     private javax.swing.JPanel jPanel1;
