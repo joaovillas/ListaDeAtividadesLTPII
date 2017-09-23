@@ -210,8 +210,8 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
                 new TelaLoginSenha().setVisible(true);
+                UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
             }
         });
     }
