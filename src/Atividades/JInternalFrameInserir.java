@@ -44,6 +44,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
         jLabelCodigo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaAtividadesDescricao = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -74,6 +75,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
         jButtonAtividadesCancelar.setText("Cancelar");
 
         jButtonAtividadesInserir.setText("Inserir");
+        jButtonAtividadesInserir.setEnabled(false);
 
         jTextFieldAtividadesCodigo.setEditable(false);
 
@@ -82,6 +84,9 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
         jTextAreaAtividadesDescricao.setColumns(20);
         jTextAreaAtividadesDescricao.setRows(5);
         jScrollPane1.setViewportView(jTextAreaAtividadesDescricao);
+
+        jButton1.setText("Limpar");
+        jButton1.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,7 +128,9 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
                         .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAtividadesInserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonAtividadesCancelar)))
                 .addContainerGap())
         );
@@ -151,7 +158,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelDescricao)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -159,7 +166,8 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
                         .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonAtividadesCancelar)
-                        .addComponent(jButtonAtividadesInserir))))
+                        .addComponent(jButtonAtividadesInserir)
+                        .addComponent(jButton1))))
         );
 
         pack();
@@ -167,6 +175,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtividadesCancelar;
     private javax.swing.JButton jButtonAtividadesInserir;
     private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
