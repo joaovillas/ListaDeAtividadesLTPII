@@ -55,7 +55,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
 
         jLabelNome.setText("Nome:");
 
-        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
 
         jLabelData.setText("Data:");
 

@@ -66,7 +66,7 @@ public class JInternalFrameAlterar extends javax.swing.JInternalFrame {
 
         jLabelData.setText("Data:");
 
-        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
         jComboBoxAtividadesTipo.setEnabled(false);
 
         jLabelTipo.setText("Tipo:");

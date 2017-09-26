@@ -69,7 +69,7 @@ public class JInternalFrameRemover extends javax.swing.JInternalFrame {
 
         jLabelLocal.setText("Local:");
 
-        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
         jComboBoxAtividadesTipo.setEnabled(false);
 
         jLabelTipo.setText("Tipo:");

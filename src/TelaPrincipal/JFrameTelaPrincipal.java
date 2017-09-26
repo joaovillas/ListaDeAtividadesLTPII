@@ -345,13 +345,13 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
 
     private void menuRelatorioCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelatorioCategoriaActionPerformed
         // TODO add your handling code here:
-        if (JInternalFrameRelatoriosCategoria.isVisible())
+        if (jInternalFrameRelatoriosCategoria.isVisible())
         {
-            JInternalFrameRelatoriosCategoria.moveToFront();
+            jInternalFrameRelatoriosCategoria.moveToFront();
         }
         else
         {
-            jDesktopPaneTelaPrincipal.add(JInternalFrameRelatoriosCategoria).setVisible(true);
+            jDesktopPaneTelaPrincipal.add(jInternalFrameRelatoriosCategoria).setVisible(true);
         }
     }//GEN-LAST:event_menuRelatorioCategoriaActionPerformed
 
