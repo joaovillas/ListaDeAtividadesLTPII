@@ -8,7 +8,8 @@ package TelaPrincipal;
 import Atividades.JInternalFrameInserir;
 import Atividades.JInternalFrameAlterar;
 import Atividades.JInternalFrameRemover;
-import Atividades.JInternalFrameRelatorios;
+import Atividades.JInternalFrameRelatoriosCategoria;
+import Atividades.JInternalFrameRelatoriosData;
 
 import Categorias.JInternalFrameInserir1;
 import Categorias.JInternalFrameAlterar1;
@@ -28,7 +29,8 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     private JInternalFrameInserir jInternalFrameInserir;
     private JInternalFrameAlterar jInternalFrameAlterar;
     private JInternalFrameRemover jInternalFrameRemover;
-    private JInternalFrameRelatorios jInternalFrameRelatorios;
+    private JInternalFrameRelatoriosCategoria jInternalFrameRelatoriosCategoria;
+    private JInternalFrameRelatoriosData jInternalFrameRelatoriosData;
     
     //Categorias
     private JInternalFrameInserir1 jInternalFrameInserir1;
@@ -48,7 +50,8 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jInternalFrameInserir = new JInternalFrameInserir();
         jInternalFrameAlterar = new JInternalFrameAlterar();
         jInternalFrameRemover = new JInternalFrameRemover();
-        jInternalFrameRelatorios = new JInternalFrameRelatorios();
+        jInternalFrameRelatoriosCategoria = new JInternalFrameRelatoriosCategoria();
+        jInternalFrameRelatoriosData = new JInternalFrameRelatoriosData();
         
         //Categorias
         jInternalFrameInserir1 = new JInternalFrameInserir1();
@@ -76,7 +79,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         atividadesInserir = new javax.swing.JMenuItem();
         atividadesAlterar = new javax.swing.JMenuItem();
         ativdadesRemover = new javax.swing.JMenuItem();
-        ativdadesRelatorio = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        menuRelatorioCategoria = new javax.swing.JMenuItem();
+        menuRelatorioData = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         categoriasInserir = new javax.swing.JMenuItem();
         categoriasAlterar = new javax.swing.JMenuItem();
@@ -139,13 +144,25 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(ativdadesRemover);
 
-        ativdadesRelatorio.setText("Relatórios");
-        ativdadesRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        jMenu2.setText("Relatórios");
+
+        menuRelatorioCategoria.setText("Categorias");
+        menuRelatorioCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ativdadesRelatorioActionPerformed(evt);
+                menuRelatorioCategoriaActionPerformed(evt);
             }
         });
-        jMenu5.add(ativdadesRelatorio);
+        jMenu2.add(menuRelatorioCategoria);
+
+        menuRelatorioData.setText("Data");
+        menuRelatorioData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRelatorioDataActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuRelatorioData);
+
+        jMenu5.add(jMenu2);
 
         jMenuBar1.add(jMenu5);
 
@@ -261,18 +278,6 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ativdadesRemoverActionPerformed
 
-    private void ativdadesRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativdadesRelatorioActionPerformed
-        // TODO add your handling code here:
-        if (jInternalFrameRelatorios.isVisible())
-        {
-            jInternalFrameRelatorios.moveToFront();
-        }
-        else
-        {
-            jDesktopPaneTelaPrincipal.add(jInternalFrameRelatorios).setVisible(true);
-        }
-    }//GEN-LAST:event_ativdadesRelatorioActionPerformed
-
     private void categoriasInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasInserirActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameInserir1.isVisible())
@@ -337,6 +342,30 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenu1MousePressed
+
+    private void menuRelatorioCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelatorioCategoriaActionPerformed
+        // TODO add your handling code here:
+        if (JInternalFrameRelatoriosCategoria.isVisible())
+        {
+            JInternalFrameRelatoriosCategoria.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(JInternalFrameRelatoriosCategoria).setVisible(true);
+        }
+    }//GEN-LAST:event_menuRelatorioCategoriaActionPerformed
+
+    private void menuRelatorioDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelatorioDataActionPerformed
+        // TODO add your handling code here:
+        if (jInternalFrameRelatoriosData.isVisible())
+        {
+            jInternalFrameRelatoriosData.moveToFront();
+        }
+        else
+        {
+            jDesktopPaneTelaPrincipal.add(jInternalFrameRelatoriosData).setVisible(true);
+        }
+    }//GEN-LAST:event_menuRelatorioDataActionPerformed
                                      
     /**
      * @param args the command line arguments
@@ -375,7 +404,6 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ativdadesRelatorio;
     private javax.swing.JMenuItem ativdadesRemover;
     private javax.swing.JMenuItem atividadesAlterar;
     private javax.swing.JMenuItem atividadesInserir;
@@ -386,10 +414,13 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPaneTelaPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem menuRelatorioCategoria;
+    private javax.swing.JMenuItem menuRelatorioData;
     // End of variables declaration//GEN-END:variables
 }

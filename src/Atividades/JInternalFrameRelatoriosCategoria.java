@@ -9,12 +9,12 @@ package Atividades;
  *
  * @author Admin
  */
-public class JInternalFrameRelatorios extends javax.swing.JInternalFrame {
+public class JInternalFrameRelatoriosCategoria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JInternalFrameInserir
      */
-    public JInternalFrameRelatorios() {
+    public JInternalFrameRelatoriosCategoria() {
         initComponents();
     }
 
