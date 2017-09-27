@@ -1,0 +1,18 @@
+create table Atividade(
+codigo integer not null primary key autoincrement,
+matricula varchar(4) not null,
+nome varchar(20) not null,
+data varchar(8),
+local varchar(50),
+descricao varchar(500)
+);
+
+create table Categorias(
+codigo integer not null primary key autoincrement,
+categoria varchar(30) not null
+);
+
+create table Usuarios(
+matricula integer not null primary key autoincrement,
+senha varchar(10) not null
+);
