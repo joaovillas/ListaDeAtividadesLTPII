@@ -5,6 +5,9 @@
  */
 package Atividades;
 
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
@@ -16,6 +19,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
      */
     public JInternalFrameInserir() {
         initComponents();
+        
     }
 
     /**
@@ -38,29 +42,46 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
         jLabelLocal = new javax.swing.JLabel();
         jTextFieldAtividadesLocal = new javax.swing.JTextField();
         jLabelDescricao = new javax.swing.JLabel();
-        jButtonAtividadesCancelar = new javax.swing.JButton();
         jButtonAtividadesInserir = new javax.swing.JButton();
         jTextFieldAtividadesCodigo = new javax.swing.JTextField();
         jLabelCodigo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaAtividadesDescricao = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jButtonLimpar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Inserir Atividades");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
-        jLabelMatricula.setText("Matrícula:");
+        jLabelMatricula.setText("Matrícula:*");
 
-        jLabelNome.setText("Nome:");
+        jLabelNome.setText("Nome:*");
 
         jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
 
-        jLabelData.setText("Data:");
+        jLabelData.setText("Data:*");
 
-        jLabelTipo.setText("Tipo:");
+        jLabelTipo.setText("Tipo: *");
 
         try {
             jTextFieldAtividadesData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -68,14 +89,16 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        jLabelLocal.setText("Local:");
+        jLabelLocal.setText("Local:*");
 
         jLabelDescricao.setText("Descrição:");
 
-        jButtonAtividadesCancelar.setText("Cancelar");
-
         jButtonAtividadesInserir.setText("Inserir");
-        jButtonAtividadesInserir.setEnabled(false);
+        jButtonAtividadesInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtividadesInserirActionPerformed(evt);
+            }
+        });
 
         jTextFieldAtividadesCodigo.setEditable(false);
 
@@ -85,8 +108,12 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
         jTextAreaAtividadesDescricao.setRows(5);
         jScrollPane1.setViewportView(jTextAreaAtividadesDescricao);
 
-        jButton1.setText("Limpar");
-        jButton1.setEnabled(false);
+        jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,7 +147,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelLocal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))))
+                                .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelCodigo)
@@ -129,9 +156,7 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAtividadesInserir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAtividadesCancelar)))
+                        .addComponent(jButtonLimpar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -158,26 +183,78 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelDescricao)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCodigo)
+                    .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelCodigo)
-                        .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonAtividadesCancelar)
                         .addComponent(jButtonAtividadesInserir)
-                        .addComponent(jButton1))))
+                        .addComponent(jButtonLimpar)))
+                .addGap(1, 1, 1))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonAtividadesInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadesInserirActionPerformed
+        
+      if((jTextFieldAtividadesMatricula.getText().equalsIgnoreCase("")) || (jTextFieldAtividadesNome.getText().equalsIgnoreCase("")) 
+      || (jComboBoxAtividadesTipo.getSelectedItem().toString().equals("Selecione")) 
+      || (jTextFieldAtividadesData.getText().equalsIgnoreCase("  /  /    ")) && (jTextFieldAtividadesLocal.getText().equalsIgnoreCase("")))
+        { 
+            JOptionPane.showMessageDialog(null, "Campos obrigatórios não preenchidos");
+        }else{
+             
+            // Envia pro banco metodo insert
+          
+          JOptionPane.showMessageDialog(null, "Atividade inserida com sucesso");  
+             System.out.println("Matricula: "+jTextFieldAtividadesMatricula.getText());
+             System.out.println("Nome: "+jTextFieldAtividadesNome.getText())  ;
+             System.out.println("Categoria: "+jComboBoxAtividadesTipo.getSelectedItem().toString());
+             System.out.println("Data: "+jTextFieldAtividadesData.getText());
+             System.out.println("Local: "+jTextFieldAtividadesLocal.getText());
+             System.out.println("Descricao: "+jTextAreaAtividadesDescricao.getText());
+             
+             jTextFieldAtividadesMatricula.setText(null);
+             jTextFieldAtividadesNome.setText(null);
+             jComboBoxAtividadesTipo.setSelectedIndex(0);
+             jTextFieldAtividadesData.setText(null);
+             jTextFieldAtividadesLocal.setText(null);
+             jTextAreaAtividadesDescricao.setText(null);
+             
+             
+             
+        }
+    }//GEN-LAST:event_jButtonAtividadesInserirActionPerformed
+
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        jTextFieldAtividadesMatricula.setText(null);
+             jTextFieldAtividadesNome.setText(null);
+             jComboBoxAtividadesTipo.setSelectedIndex(0);
+             jTextFieldAtividadesData.setText(null);
+             jTextFieldAtividadesLocal.setText(null);
+             jTextAreaAtividadesDescricao.setText(null);
+             
+    }//GEN-LAST:event_jButtonLimparActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        jTextFieldAtividadesMatricula.setText(null);
+             jTextFieldAtividadesNome.setText(null);
+             jComboBoxAtividadesTipo.setSelectedIndex(0);
+             jTextFieldAtividadesData.setText(null);
+             jTextFieldAtividadesLocal.setText(null);
+             jTextAreaAtividadesDescricao.setText(null);
+    }//GEN-LAST:event_formInternalFrameActivated
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonAtividadesCancelar;
     private javax.swing.JButton jButtonAtividadesInserir;
+    private javax.swing.JButton jButtonLimpar;
     private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelData;

@@ -244,9 +244,11 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
 
     private void atividadesInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atividadesInserirActionPerformed
         // TODO add your handling code here:
-        if (jInternalFrameInserir.isVisible())
+
+       if (jInternalFrameInserir.isVisible())
         {
-            jInternalFrameInserir.moveToFront();
+            
+            jInternalFrameInserir.moveToFront();   
         }
         else
         {
