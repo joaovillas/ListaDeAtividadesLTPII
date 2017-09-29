@@ -5,16 +5,16 @@
  */
 package TelaPrincipal;
 
-import Atividades.JInternalFrameInserir;
-import Atividades.JInternalFrameAlterar;
-import Atividades.JInternalFrameRemover;
-import Atividades.JInternalFrameRelatoriosCategoria;
-import Atividades.JInternalFrameRelatoriosData;
+import Atividades.JIFrameAtividadesInserir;
+import Atividades.JIFrameAtividadesAlterar;
+import Atividades.JIFrameAtividadesRemover;
+import Atividades.JIFrameAtividadesRelatoriosCategoria;
+import Atividades.JIFrameAtividadesRelatoriosData;
 
-import Categorias.JInternalFrameInserir1;
-import Categorias.JInternalFrameAlterar1;
-import Categorias.JInternalFrameRemover1;
-import Categorias.JInternalFrameRelatorios1;
+import Categorias.JIFrameCategoriasInserir;
+import Categorias.JIFrameCategoriasAlterar;
+import Categorias.JIFrameCategoriasRemover;
+import Categorias.JIFrameCategoriasRelatorios;
 
 import Ajuda.JInternalFrameSobre;
 
@@ -26,17 +26,17 @@ import javax.swing.JInternalFrame;
  */
 public class JFrameTelaPrincipal extends javax.swing.JFrame {
     //Atividades
-    private JInternalFrameInserir jInternalFrameInserir;
-    private JInternalFrameAlterar jInternalFrameAlterar;
-    private JInternalFrameRemover jInternalFrameRemover;
-    private JInternalFrameRelatoriosCategoria jInternalFrameRelatoriosCategoria;
-    private JInternalFrameRelatoriosData jInternalFrameRelatoriosData;
+    private JIFrameAtividadesInserir jInternalFrameInserir;
+    private JIFrameAtividadesAlterar jInternalFrameAlterar;
+    private JIFrameAtividadesRemover jInternalFrameRemover;
+    private JIFrameAtividadesRelatoriosCategoria jInternalFrameRelatoriosCategoria;
+    private JIFrameAtividadesRelatoriosData jInternalFrameRelatoriosData;
     
     //Categorias
-    private JInternalFrameInserir1 jInternalFrameInserir1;
-    private JInternalFrameAlterar1 jInternalFrameAlterar1;
-    private JInternalFrameRemover1 jInternalFrameRemover1;
-    private JInternalFrameRelatorios1 jInternalFrameRelatorios1;
+    private JIFrameCategoriasInserir jInternalFrameInserir1;
+    private JIFrameCategoriasAlterar jInternalFrameAlterar1;
+    private JIFrameCategoriasRemover jInternalFrameRemover1;
+    private JIFrameCategoriasRelatorios jInternalFrameRelatorios1;
     
     //Ajuda
     private JInternalFrameSobre jInternalFrameSobre;
@@ -47,17 +47,17 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     public JFrameTelaPrincipal() {
         initComponents();
         //Atividades
-        jInternalFrameInserir = new JInternalFrameInserir();
-        jInternalFrameAlterar = new JInternalFrameAlterar();
-        jInternalFrameRemover = new JInternalFrameRemover();
-        jInternalFrameRelatoriosCategoria = new JInternalFrameRelatoriosCategoria();
-        jInternalFrameRelatoriosData = new JInternalFrameRelatoriosData();
+        jInternalFrameInserir = new JIFrameAtividadesInserir();
+        jInternalFrameAlterar = new JIFrameAtividadesAlterar();
+        jInternalFrameRemover = new JIFrameAtividadesRemover();
+        jInternalFrameRelatoriosCategoria = new JIFrameAtividadesRelatoriosCategoria();
+        jInternalFrameRelatoriosData = new JIFrameAtividadesRelatoriosData();
         
         //Categorias
-        jInternalFrameInserir1 = new JInternalFrameInserir1();
-        jInternalFrameAlterar1 = new JInternalFrameAlterar1();
-        jInternalFrameRemover1 = new JInternalFrameRemover1();
-        jInternalFrameRelatorios1 = new JInternalFrameRelatorios1();
+        jInternalFrameInserir1 = new JIFrameCategoriasInserir();
+        jInternalFrameAlterar1 = new JIFrameCategoriasAlterar();
+        jInternalFrameRemover1 = new JIFrameCategoriasRemover();
+        jInternalFrameRelatorios1 = new JIFrameCategoriasRelatorios();
   
         //Ajuda
         jInternalFrameSobre = new JInternalFrameSobre();
@@ -74,22 +74,25 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
 
         jDesktopPaneTelaPrincipal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        atividadesInserir = new javax.swing.JMenuItem();
-        atividadesAlterar = new javax.swing.JMenuItem();
-        ativdadesRemover = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        menuRelatorioCategoria = new javax.swing.JMenuItem();
-        menuRelatorioData = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        categoriasInserir = new javax.swing.JMenuItem();
-        categoriasAlterar = new javax.swing.JMenuItem();
-        categoriasRemover = new javax.swing.JMenuItem();
-        categoriasRelatorio = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        menuPrincipal = new javax.swing.JMenuBar();
+        menuAtividades = new javax.swing.JMenu();
+        menuAtividadesInserir = new javax.swing.JMenuItem();
+        menuAtividadesAlterar = new javax.swing.JMenuItem();
+        menuAtivdadesRemover = new javax.swing.JMenuItem();
+        menuAtividadesRelatorios = new javax.swing.JMenu();
+        menuAtividadesRelatoriosCategoria = new javax.swing.JMenuItem();
+        menuAtividadesRelatoriosData = new javax.swing.JMenuItem();
+        menuCategorias = new javax.swing.JMenu();
+        menuCategoriasInserir = new javax.swing.JMenuItem();
+        menuCategoriasAlterar = new javax.swing.JMenuItem();
+        menuCategoriasRemover = new javax.swing.JMenuItem();
+        menuCategoriasRelatorio = new javax.swing.JMenuItem();
+        menuUsuario = new javax.swing.JMenu();
+        menuUsuarioCadastrar = new javax.swing.JMenuItem();
+        menuUsuarioAlterar = new javax.swing.JMenuItem();
+        menuAjuda = new javax.swing.JMenu();
+        menuAjudaSobre = new javax.swing.JMenuItem();
+        menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
@@ -113,116 +116,126 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         jDesktopPaneTelaPrincipalLayout.setVerticalGroup(
             jDesktopPaneTelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneTelaPrincipalLayout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, Short.MAX_VALUE)
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, Short.MAX_VALUE)
                 .addGap(74, 74, 74))
         );
 
-        jMenu5.setText("Atividades");
+        menuAtividades.setText("Atividades");
 
-        atividadesInserir.setText("Inserir");
-        atividadesInserir.addActionListener(new java.awt.event.ActionListener() {
+        menuAtividadesInserir.setText("Inserir");
+        menuAtividadesInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atividadesInserirActionPerformed(evt);
+                menuAtividadesInserirActionPerformed(evt);
             }
         });
-        jMenu5.add(atividadesInserir);
+        menuAtividades.add(menuAtividadesInserir);
 
-        atividadesAlterar.setText("Alterar");
-        atividadesAlterar.addActionListener(new java.awt.event.ActionListener() {
+        menuAtividadesAlterar.setText("Alterar");
+        menuAtividadesAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atividadesAlterarActionPerformed(evt);
+                menuAtividadesAlterarActionPerformed(evt);
             }
         });
-        jMenu5.add(atividadesAlterar);
+        menuAtividades.add(menuAtividadesAlterar);
 
-        ativdadesRemover.setText("Remover");
-        ativdadesRemover.addActionListener(new java.awt.event.ActionListener() {
+        menuAtivdadesRemover.setText("Remover");
+        menuAtivdadesRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ativdadesRemoverActionPerformed(evt);
+                menuAtivdadesRemoverActionPerformed(evt);
             }
         });
-        jMenu5.add(ativdadesRemover);
+        menuAtividades.add(menuAtivdadesRemover);
 
-        jMenu2.setText("Relatórios");
+        menuAtividadesRelatorios.setText("Relatórios");
 
-        menuRelatorioCategoria.setText("Categorias");
-        menuRelatorioCategoria.addActionListener(new java.awt.event.ActionListener() {
+        menuAtividadesRelatoriosCategoria.setText("Categorias");
+        menuAtividadesRelatoriosCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuRelatorioCategoriaActionPerformed(evt);
+                menuAtividadesRelatoriosCategoriaActionPerformed(evt);
             }
         });
-        jMenu2.add(menuRelatorioCategoria);
+        menuAtividadesRelatorios.add(menuAtividadesRelatoriosCategoria);
 
-        menuRelatorioData.setText("Data");
-        menuRelatorioData.addActionListener(new java.awt.event.ActionListener() {
+        menuAtividadesRelatoriosData.setText("Data");
+        menuAtividadesRelatoriosData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuRelatorioDataActionPerformed(evt);
+                menuAtividadesRelatoriosDataActionPerformed(evt);
             }
         });
-        jMenu2.add(menuRelatorioData);
+        menuAtividadesRelatorios.add(menuAtividadesRelatoriosData);
 
-        jMenu5.add(jMenu2);
+        menuAtividades.add(menuAtividadesRelatorios);
 
-        jMenuBar1.add(jMenu5);
+        menuPrincipal.add(menuAtividades);
 
-        jMenu6.setText("Categorias");
+        menuCategorias.setText("Categorias");
 
-        categoriasInserir.setText("Inserir");
-        categoriasInserir.addActionListener(new java.awt.event.ActionListener() {
+        menuCategoriasInserir.setText("Inserir");
+        menuCategoriasInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoriasInserirActionPerformed(evt);
+                menuCategoriasInserirActionPerformed(evt);
             }
         });
-        jMenu6.add(categoriasInserir);
+        menuCategorias.add(menuCategoriasInserir);
 
-        categoriasAlterar.setText("Alterar");
-        categoriasAlterar.addActionListener(new java.awt.event.ActionListener() {
+        menuCategoriasAlterar.setText("Alterar");
+        menuCategoriasAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoriasAlterarActionPerformed(evt);
+                menuCategoriasAlterarActionPerformed(evt);
             }
         });
-        jMenu6.add(categoriasAlterar);
+        menuCategorias.add(menuCategoriasAlterar);
 
-        categoriasRemover.setText("Remover");
-        categoriasRemover.addActionListener(new java.awt.event.ActionListener() {
+        menuCategoriasRemover.setText("Remover");
+        menuCategoriasRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoriasRemoverActionPerformed(evt);
+                menuCategoriasRemoverActionPerformed(evt);
             }
         });
-        jMenu6.add(categoriasRemover);
+        menuCategorias.add(menuCategoriasRemover);
 
-        categoriasRelatorio.setText("Relatórios");
-        categoriasRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        menuCategoriasRelatorio.setText("Relatórios");
+        menuCategoriasRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoriasRelatorioActionPerformed(evt);
+                menuCategoriasRelatorioActionPerformed(evt);
             }
         });
-        jMenu6.add(categoriasRelatorio);
+        menuCategorias.add(menuCategoriasRelatorio);
 
-        jMenuBar1.add(jMenu6);
+        menuPrincipal.add(menuCategorias);
 
-        jMenu7.setText("Ajuda");
+        menuUsuario.setText("Usuários");
 
-        jMenuItem1.setText("Sobre");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuUsuarioCadastrar.setText("Cadastrar");
+        menuUsuario.add(menuUsuarioCadastrar);
+
+        menuUsuarioAlterar.setText("Alterar");
+        menuUsuario.add(menuUsuarioAlterar);
+
+        menuPrincipal.add(menuUsuario);
+
+        menuAjuda.setText("Ajuda");
+
+        menuAjudaSobre.setText("Sobre");
+        menuAjudaSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuAjudaSobreActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem1);
+        menuAjuda.add(menuAjudaSobre);
 
-        jMenuBar1.add(jMenu7);
+        menuPrincipal.add(menuAjuda);
 
-        jMenu1.setText("Sair");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenu1MousePressed(evt);
+                menuSairMousePressed(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        menuPrincipal.add(menuSair);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,7 +255,7 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void atividadesInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atividadesInserirActionPerformed
+    private void menuAtividadesInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAtividadesInserirActionPerformed
         // TODO add your handling code here:
 
        if (jInternalFrameInserir.isVisible())
@@ -254,9 +267,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameInserir).setVisible(true);
         }
-    }//GEN-LAST:event_atividadesInserirActionPerformed
+    }//GEN-LAST:event_menuAtividadesInserirActionPerformed
 
-    private void atividadesAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atividadesAlterarActionPerformed
+    private void menuAtividadesAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAtividadesAlterarActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameAlterar.isVisible())
         {
@@ -266,9 +279,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameAlterar).setVisible(true);
         }
-    }//GEN-LAST:event_atividadesAlterarActionPerformed
+    }//GEN-LAST:event_menuAtividadesAlterarActionPerformed
 
-    private void ativdadesRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ativdadesRemoverActionPerformed
+    private void menuAtivdadesRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAtivdadesRemoverActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameRemover.isVisible())
         {
@@ -278,9 +291,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameRemover).setVisible(true);
         }
-    }//GEN-LAST:event_ativdadesRemoverActionPerformed
+    }//GEN-LAST:event_menuAtivdadesRemoverActionPerformed
 
-    private void categoriasInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasInserirActionPerformed
+    private void menuCategoriasInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCategoriasInserirActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameInserir1.isVisible())
         {
@@ -290,9 +303,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameInserir1).setVisible(true);
         }
-    }//GEN-LAST:event_categoriasInserirActionPerformed
+    }//GEN-LAST:event_menuCategoriasInserirActionPerformed
 
-    private void categoriasAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasAlterarActionPerformed
+    private void menuCategoriasAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCategoriasAlterarActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameAlterar1.isVisible())
         {
@@ -302,9 +315,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameAlterar1).setVisible(true);
         }
-    }//GEN-LAST:event_categoriasAlterarActionPerformed
+    }//GEN-LAST:event_menuCategoriasAlterarActionPerformed
 
-    private void categoriasRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasRemoverActionPerformed
+    private void menuCategoriasRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCategoriasRemoverActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameRemover1.isVisible())
         {
@@ -314,9 +327,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameRemover1).setVisible(true);
         }
-    }//GEN-LAST:event_categoriasRemoverActionPerformed
+    }//GEN-LAST:event_menuCategoriasRemoverActionPerformed
 
-    private void categoriasRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriasRelatorioActionPerformed
+    private void menuCategoriasRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCategoriasRelatorioActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameRelatorios1.isVisible())
         {
@@ -326,9 +339,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameRelatorios1).setVisible(true);
         }  
-    }//GEN-LAST:event_categoriasRelatorioActionPerformed
+    }//GEN-LAST:event_menuCategoriasRelatorioActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAjudaSobreActionPerformed
         // TODO add your handling code here:
           if (jInternalFrameSobre.isVisible())
         {
@@ -338,14 +351,14 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameSobre).setVisible(true);
         }  
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuAjudaSobreActionPerformed
 
-    private void jMenu1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MousePressed
+    private void menuSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMousePressed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jMenu1MousePressed
+    }//GEN-LAST:event_menuSairMousePressed
 
-    private void menuRelatorioCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelatorioCategoriaActionPerformed
+    private void menuAtividadesRelatoriosCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAtividadesRelatoriosCategoriaActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameRelatoriosCategoria.isVisible())
         {
@@ -355,9 +368,9 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameRelatoriosCategoria).setVisible(true);
         }
-    }//GEN-LAST:event_menuRelatorioCategoriaActionPerformed
+    }//GEN-LAST:event_menuAtividadesRelatoriosCategoriaActionPerformed
 
-    private void menuRelatorioDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRelatorioDataActionPerformed
+    private void menuAtividadesRelatoriosDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAtividadesRelatoriosDataActionPerformed
         // TODO add your handling code here:
         if (jInternalFrameRelatoriosData.isVisible())
         {
@@ -367,7 +380,7 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         {
             jDesktopPaneTelaPrincipal.add(jInternalFrameRelatoriosData).setVisible(true);
         }
-    }//GEN-LAST:event_menuRelatorioDataActionPerformed
+    }//GEN-LAST:event_menuAtividadesRelatoriosDataActionPerformed
                                      
     /**
      * @param args the command line arguments
@@ -406,23 +419,26 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ativdadesRemover;
-    private javax.swing.JMenuItem atividadesAlterar;
-    private javax.swing.JMenuItem atividadesInserir;
-    private javax.swing.JMenuItem categoriasAlterar;
-    private javax.swing.JMenuItem categoriasInserir;
-    private javax.swing.JMenuItem categoriasRelatorio;
-    private javax.swing.JMenuItem categoriasRemover;
     private javax.swing.JDesktopPane jDesktopPaneTelaPrincipal;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem menuRelatorioCategoria;
-    private javax.swing.JMenuItem menuRelatorioData;
+    private javax.swing.JMenu menuAjuda;
+    private javax.swing.JMenuItem menuAjudaSobre;
+    private javax.swing.JMenuItem menuAtivdadesRemover;
+    private javax.swing.JMenu menuAtividades;
+    private javax.swing.JMenuItem menuAtividadesAlterar;
+    private javax.swing.JMenuItem menuAtividadesInserir;
+    private javax.swing.JMenu menuAtividadesRelatorios;
+    private javax.swing.JMenuItem menuAtividadesRelatoriosCategoria;
+    private javax.swing.JMenuItem menuAtividadesRelatoriosData;
+    private javax.swing.JMenu menuCategorias;
+    private javax.swing.JMenuItem menuCategoriasAlterar;
+    private javax.swing.JMenuItem menuCategoriasInserir;
+    private javax.swing.JMenuItem menuCategoriasRelatorio;
+    private javax.swing.JMenuItem menuCategoriasRemover;
+    private javax.swing.JMenuBar menuPrincipal;
+    private javax.swing.JMenu menuSair;
+    private javax.swing.JMenu menuUsuario;
+    private javax.swing.JMenuItem menuUsuarioAlterar;
+    private javax.swing.JMenuItem menuUsuarioCadastrar;
     // End of variables declaration//GEN-END:variables
 }

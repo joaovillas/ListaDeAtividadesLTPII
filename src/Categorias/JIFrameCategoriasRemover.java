@@ -9,12 +9,12 @@ package Categorias;
  *
  * @author Admin
  */
-public class JInternalFrameAlterar1 extends javax.swing.JInternalFrame {
+public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JInternalFrameInserir
      */
-    public JInternalFrameAlterar1() {
+    public JIFrameCategoriasRemover() {
         initComponents();
     }
 
@@ -28,29 +28,24 @@ public class JInternalFrameAlterar1 extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonCancelar1 = new javax.swing.JButton();
-        jButtonSalvar1 = new javax.swing.JButton();
-        jTextFieldAlterar1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBoxAtividadesTipo1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        buttonRemoverCategoria = new javax.swing.JButton();
+        jComboBoxAtividadesTipo = new javax.swing.JComboBox<>();
+        jButtonCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Categorias / Alterar");
-        setToolTipText("");
+        setTitle("Categorias / Remover");
 
-        jButtonCancelar1.setText("Cancelar");
+        jLabel2.setText("Informe a categoria que irá remover:");
 
-        jButtonSalvar1.setText("Salvar");
+        buttonRemoverCategoria.setText("Remover");
 
-        jLabel3.setText("Alterar para:");
+        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
 
-        jLabel4.setText("Escolha a Categoria para editar:");
-
-        jComboBoxAtividadesTipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jButtonCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,18 +55,14 @@ public class JInternalFrameAlterar1 extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxAtividadesTipo, 0, 129, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSalvar1)
+                        .addComponent(buttonRemoverCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCancelar1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAlterar1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxAtividadesTipo1, 0, 118, Short.MAX_VALUE)))
+                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,16 +70,12 @@ public class JInternalFrameAlterar1 extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jComboBoxAtividadesTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalvar1)
-                    .addComponent(jButtonCancelar1))
+                    .addComponent(buttonRemoverCategoria)
+                    .addComponent(jButtonCancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -108,12 +95,10 @@ public class JInternalFrameAlterar1 extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar1;
-    private javax.swing.JButton jButtonSalvar1;
-    private javax.swing.JComboBox<String> jComboBoxAtividadesTipo1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton buttonRemoverCategoria;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldAlterar1;
     // End of variables declaration//GEN-END:variables
 }

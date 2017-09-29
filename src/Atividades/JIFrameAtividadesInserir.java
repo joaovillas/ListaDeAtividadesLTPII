@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class JInternalFrameInserir extends javax.swing.JInternalFrame {
+public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JInternalFrameInserir
      */
-    public JInternalFrameInserir() {
+    public JIFrameAtividadesInserir() {
         initComponents();
         
     }
@@ -185,12 +185,13 @@ public class JInternalFrameInserir extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCodigo)
-                    .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonAtividadesInserir)
-                        .addComponent(jButtonLimpar)))
+                        .addComponent(jButtonLimpar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelCodigo)
+                        .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(1, 1, 1))
         );
 

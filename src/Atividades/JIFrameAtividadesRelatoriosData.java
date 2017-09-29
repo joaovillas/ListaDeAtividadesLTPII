@@ -7,14 +7,14 @@ package Atividades;
 
 /**
  *
- * @author Admin
+ * @author benilton.oliveira
  */
-public class JInternalFrameRelatoriosCategoria extends javax.swing.JInternalFrame {
+public class JIFrameAtividadesRelatoriosData extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form JInternalFrameInserir
+     * Creates new form JInternalFrameRelatoriosData
      */
-    public JInternalFrameRelatoriosCategoria() {
+    public JIFrameAtividadesRelatoriosData() {
         initComponents();
     }
 
@@ -29,23 +29,25 @@ public class JInternalFrameRelatoriosCategoria extends javax.swing.JInternalFram
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxRelatorioCategoria = new javax.swing.JComboBox<>();
+        jTextFieldRelatorioData = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableRelatorioCategoria = new javax.swing.JTable();
+        jTableRelatorioData = new javax.swing.JTable();
         jButtonExibir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Atividades / Relatórios");
 
-        jLabel1.setText("Selecione a categoria a ser exibida:");
+        jLabel1.setText("Informe a data que deseja ser exibida:");
 
-        jComboBoxRelatorioCategoria.setEditable(true);
-        jComboBoxRelatorioCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        try {
+            jTextFieldRelatorioData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        jTableRelatorioCategoria.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRelatorioData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,10 +55,10 @@ public class JInternalFrameRelatoriosCategoria extends javax.swing.JInternalFram
                 {null, null, null, null}
             },
             new String [] {
-                "Código", "Categoria", "Data", "Descrição"
+                "Código", "Data", "Categoria", "Descrição"
             }
         ));
-        jScrollPane1.setViewportView(jTableRelatorioCategoria);
+        jScrollPane1.setViewportView(jTableRelatorioData);
 
         jButtonExibir.setText("Exibir");
         jButtonExibir.setEnabled(false);
@@ -66,15 +68,17 @@ public class JInternalFrameRelatoriosCategoria extends javax.swing.JInternalFram
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxRelatorioCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonExibir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jTextFieldRelatorioData, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,19 +87,18 @@ public class JInternalFrameRelatoriosCategoria extends javax.swing.JInternalFram
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBoxRelatorioCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldRelatorioData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonExibir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,10 +111,10 @@ public class JInternalFrameRelatoriosCategoria extends javax.swing.JInternalFram
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExibir;
-    private javax.swing.JComboBox<String> jComboBoxRelatorioCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableRelatorioCategoria;
+    private javax.swing.JTable jTableRelatorioData;
+    private javax.swing.JFormattedTextField jTextFieldRelatorioData;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,12 +9,12 @@ package Atividades;
  *
  * @author Admin
  */
-public class JInternalFrameRemover extends javax.swing.JInternalFrame {
+public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JInternalFrameInserir
      */
-    public JInternalFrameRemover() {
+    public JIFrameAtividadesRemover() {
         initComponents();
     }
 

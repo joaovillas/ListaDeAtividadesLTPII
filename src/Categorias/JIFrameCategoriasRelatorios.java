@@ -9,12 +9,12 @@ package Categorias;
  *
  * @author Admin
  */
-public class JInternalFrameRelatorios1 extends javax.swing.JInternalFrame {
+public class JIFrameCategoriasRelatorios extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JInternalFrameInserir
      */
-    public JInternalFrameRelatorios1() {
+    public JIFrameCategoriasRelatorios() {
         initComponents();
     }
 
