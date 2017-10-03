@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/benilton.oliveira/Desktop/LTPII/ListaDeAtividadesLTPII/src/Usuarios/JIFrameUsuariosRemover.java</file>
-            <file>file:/C:/Users/benilton.oliveira/Desktop/LTPII/ListaDeAtividadesLTPII/src/Usuarios/JIFrameUsuariosAlterarSenha.java</file>
-            <file>file:/C:/Users/benilton.oliveira/Desktop/LTPII/ListaDeAtividadesLTPII/src/Usuarios/JIFrameUsuariosCadastrar.java</file>
-            <file>file:/C:/Users/benilton.oliveira/Desktop/LTPII/ListaDeAtividadesLTPII/src/TelaPrincipal/JFrameTelaPrincipal.java</file>
-            <file>file:/C:/Users/benilton.oliveira/Desktop/LTPII/ListaDeAtividadesLTPII/src/Usuarios/JIFrameUsuariosAlterarUsuarios.java</file>
+            <file>file:/C:/Users/Admin/Desktop/ListaDeAtividadesLTPII/src/sqlitejdbcdriverconnection/SQLiteJDBCDriverConnection.java</file>
+            <file>file:/C:/Users/Admin/Desktop/ListaDeAtividadesLTPII/src/sqlitejdbcdriverconnection/ModeloCliente.java</file>
+            <file>file:/C:/Users/Admin/Desktop/ListaDeAtividadesLTPII/src/sqlitejdbcdriverconnection/ModeloAtividades.java</file>
+            <file>file:/C:/Users/Admin/Desktop/ListaDeAtividadesLTPII/src/sqlitejdbcdriverconnection/ModeloCategorias.java</file>
         </group>
     </open-files>
 </project-private>
