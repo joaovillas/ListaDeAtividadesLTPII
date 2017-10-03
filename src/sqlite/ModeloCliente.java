@@ -1,4 +1,4 @@
-package sqlitejdbcdriverconnection;
+package sqlite;
 
 public class ModeloCliente {
     

@@ -1,8 +1,10 @@
 package TelaPrincipal;
 
 
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import sqlite.SQLiteJDBCDriverConnection;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -166,6 +168,14 @@ public class TelaLoginSenha extends javax.swing.JFrame {
             fieldLogin.setText("");
             fieldSenha.setText("");
         }
+        
+        
+        //SQLiteJDBCDriverConnection.testar();
+        
+        
+        
+        
+       
 
     }//GEN-LAST:event_ButonLoginActionPerformed
 
