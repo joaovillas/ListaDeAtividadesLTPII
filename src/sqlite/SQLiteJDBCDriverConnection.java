@@ -15,7 +15,7 @@ public class SQLiteJDBCDriverConnection {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:Atividades.bd";
+            String url = "jdbc:sqlite:Atividades";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             
@@ -63,18 +63,18 @@ public class SQLiteJDBCDriverConnection {
       
    
    
-    public static void insereDadosAtividade (Connection conn, int matricula, String nome, String data, String local, String descricao) {
+       public static void insereDadosAtividade (Connection conn, int matricula, String nome, String data, String local, String descricao) {
         String sql = "INSERT INTO Atividade VALUES(?,?,?,?,?,?)";
  
         try {
                 PreparedStatement pstmt = conn.prepareStatement(sql); 
                 
                 
-                pstmt.setInt(2, matricula);
-                pstmt.setString(3, nome);
-                pstmt.setString(4, data);
-                pstmt.setString(5, local);
-                pstmt.setString(6, descricao);
+                pstmt.setInt(1, matricula);
+                pstmt.setString(2, nome);
+                pstmt.setString(3, data);
+                pstmt.setString(4, local);
+                pstmt.setString(5, descricao);
                 
                 pstmt.executeUpdate();
                 
@@ -82,7 +82,6 @@ public class SQLiteJDBCDriverConnection {
             System.out.println(e.getMessage());
         }
     }
-
     
     public static void alteraDadosAtividade (Connection conn, String nome, String data, String local, String descricao , int matricula){
         
@@ -106,19 +105,14 @@ public class SQLiteJDBCDriverConnection {
     
     
     
-    public static void deletarDadosAtividade (Connection conn, int matricula ,String data , String local , String nome){
+    public static void deletarDadosAtividade (Connection conn, int matricula){
         
-        String sql = "DELETE FROM Atividade WHERE matricula=?,data =?,local=?,nome=?";
+        String sql = "DELETE FROM Atividade WHERE matricula=?";
         
         try{
                 PreparedStatement pstmt = conn.prepareStatement(sql); 
                 
                 pstmt.setInt(1, matricula);
-                pstmt.setString(2, data);
-                pstmt.setString(3, local);
-                pstmt.setString(4, nome);
-                
-                
                 pstmt.executeUpdate();
         
         }catch(SQLException e){

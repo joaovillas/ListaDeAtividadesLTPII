@@ -133,14 +133,10 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
     private void jButtonAtividadesRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadesRemoverActionPerformed
        
         int matricula = Integer.parseInt(jTextFieldAtividadesMatricula.getText());
-        String nome = jTextFieldAtividadesNome.getText();
-        String data = jTextFieldAtividadesData.getText();
-        String local = jTextFieldAtividadesLocal.getText();
-        
             
         SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
             Connection conn =  bd.connect();
-            SQLiteJDBCDriverConnection.deletarDadosAtividade(conn, matricula, data, local, nome);
+            SQLiteJDBCDriverConnection.deletarDadosAtividade(conn, matricula);
     }//GEN-LAST:event_jButtonAtividadesRemoverActionPerformed
 
 

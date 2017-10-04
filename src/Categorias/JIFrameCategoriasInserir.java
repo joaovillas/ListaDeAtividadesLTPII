@@ -159,7 +159,7 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         
         Connection conn = bd.connect();
         
-        bd.criaTabelaCategoria(conn);
+        //bd.criaTabelaCategoria(conn);
         String Inserir = jTextFieldCategoriaInserir.getText().toString();
         
         jComboBoxAtividadesTipo.addItem(Inserir);
@@ -176,7 +176,7 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         
         Connection conn = bd.connect();
         
-        bd.criaTabelaCategoria(conn);
+        //bd.criaTabelaCategoria(conn);
         JIFrameCategoriasInserir novo = new JIFrameCategoriasInserir();
         novo.selecionaDadosCategoria(conn);
         
