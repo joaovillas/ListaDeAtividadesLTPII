@@ -28,6 +28,16 @@ public class SQLiteJDBCDriverConnection {
         return conn;
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //ATIVIDADE
     public static void criaTabelaAtividade (Connection conn) {
         
         String sql = "CREATE TABLE IF NOT EXISTS Atividade (";
@@ -49,32 +59,18 @@ public class SQLiteJDBCDriverConnection {
             System.out.println(e.getMessage());
         }
     }
-    public static void criaTabelaCategoria (Connection conn) {
-        
-        String sql = "CREATE TABLE IF NOT EXISTS Categoria (";
-                sql += "	codigo integer not null PRIMARY KEY autoincrement,";
-                sql += "	categoria varchar(30) not null";
-                sql += ");";
-        
-        try {
-                Statement stmt = conn.createStatement();
-                
-            // cria uma tabela
-            stmt.execute(sql);
-            
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
     
-    public static void insereDadosAtividade (Connection conn, int codigo, String matricula, String nome, String data, String local, String descricao) {
+      
+   
+   
+    public static void insereDadosAtividade (Connection conn, int matricula, String nome, String data, String local, String descricao) {
         String sql = "INSERT INTO Atividade VALUES(?,?,?,?,?,?)";
  
         try {
                 PreparedStatement pstmt = conn.prepareStatement(sql); 
                 
-                pstmt.setInt(1, codigo);
-                pstmt.setString(2, matricula);
+                
+                pstmt.setInt(2, matricula);
                 pstmt.setString(3, nome);
                 pstmt.setString(4, data);
                 pstmt.setString(5, local);
@@ -86,6 +82,68 @@ public class SQLiteJDBCDriverConnection {
             System.out.println(e.getMessage());
         }
     }
+
+    
+    public static void alteraDadosAtividade (Connection conn, String nome, String data, String local, String descricao , int matricula){
+        
+        String sql = "UPDATE Atividade SET nome= ?,data=? ,local = ? ,descricao =? WHERE matricula = ?";
+        
+        try{
+                PreparedStatement pstmt = conn.prepareStatement(sql); 
+                
+                pstmt.setString(1, nome);
+                pstmt.setString(2, data);
+                pstmt.setString(3, local);
+                pstmt.setString(4, descricao);
+                pstmt.setInt(5, matricula);
+                pstmt.executeUpdate();
+        
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+    
+    
+    public static void deletarDadosAtividade (Connection conn, int matricula ,String data , String local , String nome){
+        
+        String sql = "DELETE FROM Atividade WHERE matricula=?,data =?,local=?,nome=?";
+        
+        try{
+                PreparedStatement pstmt = conn.prepareStatement(sql); 
+                
+                pstmt.setInt(1, matricula);
+                pstmt.setString(2, data);
+                pstmt.setString(3, local);
+                pstmt.setString(4, nome);
+                
+                
+                pstmt.executeUpdate();
+        
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //CATEGORIA 
+    
     public static void insereDadosCategoria (Connection conn, int codigo, String categoria) {
         String sql = "INSERT INTO Categoria VALUES(?,?)";
  

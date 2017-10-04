@@ -5,6 +5,9 @@
  */
 package Atividades;
 
+import java.sql.Connection;
+import sqlite.SQLiteJDBCDriverConnection;
+
 /**
  *
  * @author Admin
@@ -35,16 +38,8 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
         jLabelData = new javax.swing.JLabel();
         jTextFieldAtividadesLocal = new javax.swing.JTextField();
         jLabelLocal = new javax.swing.JLabel();
-        jComboBoxAtividadesTipo = new javax.swing.JComboBox<>();
-        jLabelTipo = new javax.swing.JLabel();
-        jLabelDescricao = new javax.swing.JLabel();
-        jLabelCodigo = new javax.swing.JLabel();
-        jTextFieldAtividadesCodigo = new javax.swing.JTextField();
-        jButtonAtividadesPesquisar = new javax.swing.JButton();
         jButtonAtividadesRemover = new javax.swing.JButton();
         jButtonAtividadesCancelar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaAtividadesDescricao = new javax.swing.JTextArea();
 
         setClosable(true);
         setIconifiable(true);
@@ -61,35 +56,19 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jTextFieldAtividadesData.setEnabled(false);
 
         jLabelData.setText("Data:");
 
-        jTextFieldAtividadesLocal.setEnabled(false);
-
         jLabelLocal.setText("Local:");
 
-        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
-        jComboBoxAtividadesTipo.setEnabled(false);
-
-        jLabelTipo.setText("Tipo:");
-
-        jLabelDescricao.setText("Descrição:");
-
-        jLabelCodigo.setText("Código:");
-
-        jButtonAtividadesPesquisar.setText("Pesquisar");
-        jButtonAtividadesPesquisar.setEnabled(false);
-
         jButtonAtividadesRemover.setText("Remover");
-        jButtonAtividadesRemover.setEnabled(false);
+        jButtonAtividadesRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtividadesRemoverActionPerformed(evt);
+            }
+        });
 
         jButtonAtividadesCancelar.setText("Cancelar");
-
-        jTextAreaAtividadesDescricao.setColumns(20);
-        jTextAreaAtividadesDescricao.setRows(5);
-        jTextAreaAtividadesDescricao.setEnabled(false);
-        jScrollPane1.setViewportView(jTextAreaAtividadesDescricao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,49 +76,32 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelDescricao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelTipo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelData)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtividadesData, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelLocal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(286, Short.MAX_VALUE)
                         .addComponent(jButtonAtividadesRemover)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAtividadesCancelar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtividadesCodigo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabelMatricula)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtividadesMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelData)
+                                .addGap(24, 24, 24)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextFieldAtividadesMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAtividadesData))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelLocal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldAtividadesLocal))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtividadesNome))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonAtividadesPesquisar)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(jTextFieldAtividadesNome)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -153,26 +115,13 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelMatricula)
                         .addComponent(jTextFieldAtividadesMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCodigo)
-                    .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAtividadesPesquisar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelData)
-                    .addComponent(jLabelTipo)
                     .addComponent(jTextFieldAtividadesData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelLocal)
                     .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelDescricao)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAtividadesCancelar)
                     .addComponent(jButtonAtividadesRemover)))
@@ -181,22 +130,27 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonAtividadesRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadesRemoverActionPerformed
+       
+        int matricula = Integer.parseInt(jTextFieldAtividadesMatricula.getText());
+        String nome = jTextFieldAtividadesNome.getText();
+        String data = jTextFieldAtividadesData.getText();
+        String local = jTextFieldAtividadesLocal.getText();
+        
+            
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+            Connection conn =  bd.connect();
+            SQLiteJDBCDriverConnection.deletarDadosAtividade(conn, matricula, data, local, nome);
+    }//GEN-LAST:event_jButtonAtividadesRemoverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtividadesCancelar;
-    private javax.swing.JButton jButtonAtividadesPesquisar;
     private javax.swing.JButton jButtonAtividadesRemover;
-    private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
-    private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelData;
-    private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelLocal;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JLabel jLabelNome;
-    private javax.swing.JLabel jLabelTipo;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaAtividadesDescricao;
-    private javax.swing.JTextField jTextFieldAtividadesCodigo;
     private javax.swing.JFormattedTextField jTextFieldAtividadesData;
     private javax.swing.JTextField jTextFieldAtividadesLocal;
     private javax.swing.JTextField jTextFieldAtividadesMatricula;

@@ -5,8 +5,10 @@
  */
 package Atividades;
 
+import java.sql.Connection;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import sqlite.SQLiteJDBCDriverConnection;
 
 /**
  *
@@ -200,22 +202,39 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
 
     private void jButtonAtividadesInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadesInserirActionPerformed
         
+        int matricula = Integer.parseInt(jTextFieldAtividadesMatricula.getText());
+        String nome = jTextFieldAtividadesNome.getText();
+        String tipo = jComboBoxAtividadesTipo.getSelectedItem().toString();
+        String data = jTextFieldAtividadesData.getText();
+        String local = jTextFieldAtividadesLocal.getText();
+        String desc = jTextAreaAtividadesDescricao.getText();
+        
+        
+        
+        
+        
+        
+        
+        
       if((jTextFieldAtividadesMatricula.getText().equalsIgnoreCase("")) || (jTextFieldAtividadesNome.getText().equalsIgnoreCase("")) 
       || (jComboBoxAtividadesTipo.getSelectedItem().toString().equals("Selecione")) 
       || (jTextFieldAtividadesData.getText().equalsIgnoreCase("  /  /    ")) && (jTextFieldAtividadesLocal.getText().equalsIgnoreCase("")))
         { 
             JOptionPane.showMessageDialog(null, "Campos obrigatórios não preenchidos");
         }else{
-             
-            // Envia pro banco metodo insert
+            SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+            Connection conn =  bd.connect();
+            SQLiteJDBCDriverConnection.insereDadosAtividade(conn, matricula , nome, data, local, desc);
+           
+           
           
           JOptionPane.showMessageDialog(null, "Atividade inserida com sucesso");  
-             System.out.println("Matricula: "+jTextFieldAtividadesMatricula.getText());
-             System.out.println("Nome: "+jTextFieldAtividadesNome.getText())  ;
-             System.out.println("Categoria: "+jComboBoxAtividadesTipo.getSelectedItem().toString());
-             System.out.println("Data: "+jTextFieldAtividadesData.getText());
-             System.out.println("Local: "+jTextFieldAtividadesLocal.getText());
-             System.out.println("Descricao: "+jTextAreaAtividadesDescricao.getText());
+             System.out.println("Matricula: "+matricula);
+             System.out.println("Nome: "+nome)  ;
+             //System.out.println("Categoria: "+categoria);
+             System.out.println("Data: "+data);
+             System.out.println("Local: "+local);
+             System.out.println("Descricao: "+desc);
              
              jTextFieldAtividadesMatricula.setText(null);
              jTextFieldAtividadesNome.setText(null);
@@ -244,12 +263,14 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        jTextFieldAtividadesMatricula.setText(null);
+            
+             jTextFieldAtividadesMatricula.setText(null);
              jTextFieldAtividadesNome.setText(null);
              jComboBoxAtividadesTipo.setSelectedIndex(0);
              jTextFieldAtividadesData.setText(null);
              jTextFieldAtividadesLocal.setText(null);
              jTextAreaAtividadesDescricao.setText(null);
+             
     }//GEN-LAST:event_formInternalFrameActivated
 
 
