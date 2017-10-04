@@ -5,6 +5,16 @@
  */
 package Categorias;
 
+import java.awt.TextArea;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import sqlite.ModeloCategorias;
+import sqlite.SQLiteJDBCDriverConnection;
+
 /**
  *
  * @author Admin
@@ -34,6 +44,10 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         buttonCancelarGategoria = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jComboBoxAtividadesTipo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldCategoriaCodigo = new javax.swing.JTextField();
+        jButtonVisualizar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -45,13 +59,28 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         jLabel2.setText("Digite a categoria que deseja adicionar:");
 
         buttonInserirCategoria.setText("Inserir");
-        buttonInserirCategoria.setEnabled(false);
+        buttonInserirCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInserirCategoriaActionPerformed(evt);
+            }
+        });
 
         buttonCancelarGategoria.setText("Cancelar");
 
         jLabel1.setText("Categorias Existentes:");
 
-        jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jLabel3.setText("Codigo:");
+
+        jTextFieldCategoriaCodigo.setEditable(false);
+
+        jButtonVisualizar.setText("visualizar");
+        jButtonVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVisualizarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("jLabel4");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -61,19 +90,30 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldCategoriaInserir, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCategoriaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonInserirCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonCancelarGategoria)))
+                        .addComponent(buttonCancelarGategoria))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBoxAtividadesTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldCategoriaInserir))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonVisualizar)
+                                .addGap(13, 13, 13)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,11 +126,17 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonVisualizar)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonInserirCategoria)
-                    .addComponent(buttonCancelarGategoria))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonInserirCategoria)
+                        .addComponent(buttonCancelarGategoria))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jTextFieldCategoriaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -108,14 +154,81 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonInserirCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInserirCategoriaActionPerformed
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+        
+        Connection conn = bd.connect();
+        
+        bd.criaTabelaCategoria(conn);
+        String Inserir = jTextFieldCategoriaInserir.getText().toString();
+        
+        jComboBoxAtividadesTipo.addItem(Inserir);
+        int quantidade = jComboBoxAtividadesTipo.getItemCount();
+        
+        bd.insereDadosCategoria(conn,quantidade++, Inserir);
+        
+        
+    }//GEN-LAST:event_buttonInserirCategoriaActionPerformed
+   
+    private void jButtonVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisualizarActionPerformed
+        
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+        
+        Connection conn = bd.connect();
+        
+        bd.criaTabelaCategoria(conn);
+        JIFrameCategoriasInserir novo = new JIFrameCategoriasInserir();
+        novo.selecionaDadosCategoria(conn);
+        
+        
+    }//GEN-LAST:event_jButtonVisualizarActionPerformed
+
+     public  void selecionaDadosCategoria (Connection conn) {
+        
+        String sql = "SELECT codigo, categoria "
+                     + "FROM Categoria;";
+        
+        
+        try {
+            
+            Statement comandoSql = conn.createStatement();
+            
+            ResultSet rs  = comandoSql.executeQuery(sql);
+                
+            // loop no resultado
+          
+            while (rs.next()) {
+                
+                System.out.println(rs.getInt("codigo") +  "\t" + 
+                                  rs.getString("categoria"));  
+
+            jLabel4.setText(rs.getString("categoria").toString());
+            }
+            
+             
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancelarGategoria;
     private javax.swing.JButton buttonInserirCategoria;
+    private javax.swing.JButton jButtonVisualizar;
     private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldCategoriaCodigo;
     private javax.swing.JTextField jTextFieldCategoriaInserir;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+    
 }
+

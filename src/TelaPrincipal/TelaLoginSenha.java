@@ -155,7 +155,7 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         String login = fieldLogin.getText();
         String senha = fieldSenha.getText();
 
-        if ((login.equals("root"))&&(senha.equals("root")))
+       /* if ((login.equals("root"))&&(senha.equals("root")))
         {
             fieldLogin.enable(false);
             fieldSenha.enable(false);
@@ -167,8 +167,10 @@ public class TelaLoginSenha extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Login/Senha Inválidos.");
             fieldLogin.setText("");
             fieldSenha.setText("");
-        }
-        
+        }*/
+       
+        new JFrameTelaPrincipal().setVisible(true);
+            this.setVisible(false);
         
         //SQLiteJDBCDriverConnection.testar();
         

@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Categorias.JIFrameCategoriasInserir;
+
 public class SQLiteJDBCDriverConnection {
     
     public Connection connect() {
@@ -90,7 +92,7 @@ public class SQLiteJDBCDriverConnection {
         try {
                 PreparedStatement pstmt = conn.prepareStatement(sql); 
                 
-                pstmt.setInt(1, codigo);
+                //pstmt.setInt(1, codigo);
                 pstmt.setString(2, categoria);
                 
                 pstmt.executeUpdate();
@@ -98,6 +100,50 @@ public class SQLiteJDBCDriverConnection {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public String getX() {
+        return x;
+    }
+
+    public void setX(String x) {
+        this.x = x;
+    }
+
+    
+    private String x;
+    
+    /*public static void selecionaDadosCategoria (Connection conn) {
+        
+        String sql = "SELECT codigo, categoria "
+                     + "FROM Categoria;";
+        
+        
+        try {
+            
+            Statement comandoSql = conn.createStatement();
+            
+            ResultSet rs  = comandoSql.executeQuery(sql);
+                
+            // loop no resultado
+          
+            while (rs.next()) {
+                
+                System.out.println(rs.getInt("codigo") +  "\t" + 
+                                  rs.getString("categoria"));  
+                
+            ModeloCategorias novo = new ModeloCategorias();
+             novo.setCategoria(rs.getString("categoria"));
+            }
+            
+             
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }*/
+    public static void visualizarCategoria (Connection conn, int codigo, String categoria){
+        
     }
     
 

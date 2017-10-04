@@ -4,7 +4,7 @@ package sqlite;
 public class ModeloCategorias {
     
     private int codigo;
-    private String categoria;
+    public String categoria;
     
     public int getCodigo() {
         return codigo;
