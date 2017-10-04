@@ -9,6 +9,10 @@ import java.sql.Connection;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import sqlite.SQLiteJDBCDriverConnection;
+import Categorias.JIFrameCategoriasInserir;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -16,12 +20,15 @@ import sqlite.SQLiteJDBCDriverConnection;
  */
 public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
 
+    SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+    Connection conn = bd.connect();
+
     /**
      * Creates new form JInternalFrameInserir
      */
     public JIFrameAtividadesInserir() {
         initComponents();
-        
+        this.selecionaDadosCategoria(conn);
     }
 
     /**
@@ -199,78 +206,97 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void selecionaDadosCategoria(Connection conn) {
 
+        String sql = "SELECT codigo, categoria "
+                + "FROM Categoria;";
+
+        try {
+
+            Statement comandoSql = conn.createStatement();
+
+            ResultSet rs = comandoSql.executeQuery(sql);
+
+            // loop no resultado
+            jComboBoxAtividadesTipo.removeAllItems();
+            while (rs.next()) {
+
+                //System.out.println(rs.getInt("codigo") +  "\t" + 
+                //                 rs.getString("categoria")); 
+                jComboBoxAtividadesTipo.addItem(rs.getString("categoria"));
+
+            }
+            jComboBoxAtividadesTipo.updateUI();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
     private void jButtonAtividadesInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadesInserirActionPerformed
-        
+
         int matricula = Integer.parseInt(jTextFieldAtividadesMatricula.getText());
         String nome = jTextFieldAtividadesNome.getText();
-        String tipo = jComboBoxAtividadesTipo.getSelectedItem().toString();
+        String categoria = jComboBoxAtividadesTipo.getSelectedItem().toString();
         String data = jTextFieldAtividadesData.getText();
         String local = jTextFieldAtividadesLocal.getText();
         String desc = jTextAreaAtividadesDescricao.getText();
-        
-        
-        
-        
-        
-        
-        
-        
-      if((jTextFieldAtividadesMatricula.getText().equalsIgnoreCase("")) || (jTextFieldAtividadesNome.getText().equalsIgnoreCase("")) 
-      || (jComboBoxAtividadesTipo.getSelectedItem().toString().equals("Selecione")) 
-      || (jTextFieldAtividadesData.getText().equalsIgnoreCase("  /  /    ")) && (jTextFieldAtividadesLocal.getText().equalsIgnoreCase("")))
-        { 
+   
+
+        if ((jTextFieldAtividadesMatricula.getText().equalsIgnoreCase("")) || (jTextFieldAtividadesNome.getText().equalsIgnoreCase(""))
+                || (jComboBoxAtividadesTipo.getSelectedItem().toString().equals("Selecione"))
+                || (jTextFieldAtividadesData.getText().equalsIgnoreCase("  /  /    ")) && (jTextFieldAtividadesLocal.getText().equalsIgnoreCase(""))) {
             JOptionPane.showMessageDialog(null, "Campos obrigatórios não preenchidos");
-        }else{
+        } else {
             SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
-            Connection conn =  bd.connect();
-            SQLiteJDBCDriverConnection.insereDadosAtividade(conn, matricula , nome, data, local, desc);
-           
-           
-          
-          JOptionPane.showMessageDialog(null, "Atividade inserida com sucesso");  
-             System.out.println("Matricula: "+matricula);
-             System.out.println("Nome: "+nome)  ;
-             //System.out.println("Categoria: "+categoria);
-             System.out.println("Data: "+data);
-             System.out.println("Local: "+local);
-             System.out.println("Descricao: "+desc);
-             
-             jTextFieldAtividadesMatricula.setText(null);
-             jTextFieldAtividadesNome.setText(null);
-             jComboBoxAtividadesTipo.setSelectedIndex(0);
-             jTextFieldAtividadesData.setText(null);
-             jTextFieldAtividadesLocal.setText(null);
-             jTextAreaAtividadesDescricao.setText(null);
-             
-             
-             
+            Connection conn = bd.connect();
+            SQLiteJDBCDriverConnection.criaTabelaAtividade(conn);
+            SQLiteJDBCDriverConnection.insereDadosAtividade(conn, matricula, nome, categoria, data, local, desc);
+
+            JOptionPane.showMessageDialog(null, "Atividade inserida com sucesso");
+            System.out.println("Matricula: " + matricula);
+            System.out.println("Nome: " + nome);
+            System.out.println("Categoria: "+ categoria);
+            System.out.println("Data: " + data);
+            System.out.println("Local: " + local);
+            System.out.println("Descricao: " + desc);
+
+            jTextFieldAtividadesMatricula.setText(null);
+            jTextFieldAtividadesNome.setText(null);
+            jComboBoxAtividadesTipo.setSelectedIndex(0);
+            jTextFieldAtividadesData.setText(null);
+            jTextFieldAtividadesLocal.setText(null);
+            jTextAreaAtividadesDescricao.setText(null);
+
         }
     }//GEN-LAST:event_jButtonAtividadesInserirActionPerformed
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         jTextFieldAtividadesMatricula.setText(null);
-             jTextFieldAtividadesNome.setText(null);
-             jComboBoxAtividadesTipo.setSelectedIndex(0);
-             jTextFieldAtividadesData.setText(null);
-             jTextFieldAtividadesLocal.setText(null);
-             jTextAreaAtividadesDescricao.setText(null);
-             
+        jTextFieldAtividadesNome.setText(null);
+        jComboBoxAtividadesTipo.setSelectedIndex(0);
+        jTextFieldAtividadesData.setText(null);
+        jTextFieldAtividadesLocal.setText(null);
+        jTextAreaAtividadesDescricao.setText(null);
+
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        
+
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-            
-             jTextFieldAtividadesMatricula.setText(null);
-             jTextFieldAtividadesNome.setText(null);
-             jComboBoxAtividadesTipo.setSelectedIndex(0);
-             jTextFieldAtividadesData.setText(null);
-             jTextFieldAtividadesLocal.setText(null);
-             jTextAreaAtividadesDescricao.setText(null);
-             
+
+        jTextFieldAtividadesMatricula.setText(null);
+        jTextFieldAtividadesNome.setText(null);
+        jComboBoxAtividadesTipo.setSelectedIndex(0);
+        jTextFieldAtividadesData.setText(null);
+        jTextFieldAtividadesLocal.setText(null);
+        jTextAreaAtividadesDescricao.setText(null);
+        jComboBoxAtividadesTipo.removeAll();
+        this.selecionaDadosCategoria(conn);
+
+
     }//GEN-LAST:event_formInternalFrameActivated
 
 

@@ -1,0 +1,5 @@
+.open Atividades.bd
+.table
+.headers on
+.mode columns
+select * from Atividade;
