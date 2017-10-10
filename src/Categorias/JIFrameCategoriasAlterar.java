@@ -5,17 +5,30 @@
  */
 package Categorias;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import sqlite.SQLiteJDBCDriverConnection;
+import Categorias.JIFrameCategoriasInserir;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Admin
  */
 public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
+    SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+    Connection conn = bd.connect();
 
     /**
      * Creates new form JInternalFrameInserir
      */
     public JIFrameCategoriasAlterar() {
         initComponents();
+        this.selecionaDadosCategoria(conn);
     }
 
     /**
@@ -28,12 +41,11 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonCancelar1 = new javax.swing.JButton();
         jButtonSalvar1 = new javax.swing.JButton();
         jTextFieldAlterar1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBoxAtividadesTipo1 = new javax.swing.JComboBox<>();
+        jComboBoxCategoriasTipo = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -42,15 +54,18 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
         setTitle("Categorias / Alterar");
         setToolTipText("");
 
-        jButtonCancelar1.setText("Cancelar");
-
         jButtonSalvar1.setText("Salvar");
+        jButtonSalvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalvar1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Alterar para:");
 
         jLabel4.setText("Escolha a Categoria para editar:");
 
-        jComboBoxAtividadesTipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jComboBoxCategoriasTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,18 +75,16 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSalvar1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCancelar1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldAlterar1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBoxAtividadesTipo1, 0, 118, Short.MAX_VALUE)))
+                        .addComponent(jComboBoxCategoriasTipo, 0, 118, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvar1)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -80,16 +93,14 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBoxAtividadesTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxCategoriasTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalvar1)
-                    .addComponent(jButtonCancelar1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButtonSalvar1)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,11 +117,40 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvar1ActionPerformed
+        
+    }//GEN-LAST:event_jButtonSalvar1ActionPerformed
+public void selecionaDadosCategoria(Connection conn) {
+
+        String sql = "SELECT codigo, categoria "
+                + "FROM Categoria;";
+
+        try {
+
+            Statement comandoSql = conn.createStatement();
+
+            ResultSet rs = comandoSql.executeQuery(sql);
+
+            // loop no resultado
+            jComboBoxCategoriasTipo.removeAllItems();
+            while (rs.next()) {
+
+                //System.out.println(rs.getInt("codigo") +  "\t" + 
+                //                 rs.getString("categoria")); 
+                jComboBoxCategoriasTipo.addItem(rs.getString("categoria"));
+
+            }
+            jComboBoxCategoriasTipo.updateUI();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar1;
     private javax.swing.JButton jButtonSalvar1;
-    private javax.swing.JComboBox<String> jComboBoxAtividadesTipo1;
+    private javax.swing.JComboBox<String> jComboBoxCategoriasTipo;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

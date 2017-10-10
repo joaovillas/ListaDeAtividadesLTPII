@@ -44,12 +44,10 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldCategoriaInserir = new javax.swing.JTextField();
         buttonInserirCategoria = new javax.swing.JButton();
-        buttonCancelarGategoria = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxAtividadesTipo = new javax.swing.JComboBox<>();
+        jComboBoxCategoriasTipo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCategoriaCodigo = new javax.swing.JTextField();
-        jButtonVisualizar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -57,6 +55,23 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Categorias / Inserir");
         setToolTipText("");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel2.setText("Digite a categoria que deseja adicionar:");
 
@@ -67,20 +82,11 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
             }
         });
 
-        buttonCancelarGategoria.setText("Cancelar");
-
         jLabel1.setText("Categorias Existentes:");
 
         jLabel3.setText("Codigo:");
 
         jTextFieldCategoriaCodigo.setEditable(false);
-
-        jButtonVisualizar.setText("Remover");
-        jButtonVisualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVisualizarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,24 +100,16 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldCategoriaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonInserirCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonCancelarGategoria))
+                        .addComponent(buttonInserirCategoria))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBoxAtividadesTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jComboBoxCategoriasTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel2))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldCategoriaInserir))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 81, Short.MAX_VALUE)
-                                .addComponent(jButtonVisualizar)
-                                .addGap(13, 13, 13)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldCategoriaInserir, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -124,17 +122,13 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonVisualizar))
+                    .addComponent(jComboBoxCategoriasTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonInserirCategoria)
-                        .addComponent(buttonCancelarGategoria))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jTextFieldCategoriaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldCategoriaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonInserirCategoria))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,12 +151,44 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
        // Connection conn = bd.connect();
         
         //bd.criaTabelaCategoria(conn);
-        String Inserir = jTextFieldCategoriaInserir.getText().toString();
+        String Inserir = jTextFieldCategoriaInserir.getText().toString(); //Lazer
+        int  i = 0;
+        int cont = jComboBoxCategoriasTipo.getItemCount();  //3
+        int x =1;
+        if (cont!=0)
+        {
+            while(i<cont) //0  
+            {      
+                if (jComboBoxCategoriasTipo.getItemAt(i).equals(Inserir))
+                {
+                    System.out.println("erro");
+                    JOptionPane.showMessageDialog(null, "Categoria já existe.");
+                    x=1;
+                    break;     
+                }
+                else
+                {
+                 x++;
+                }
+                 i++;
+            }
+            if (x!=1)
+            {
+                jComboBoxCategoriasTipo.addItem(Inserir);
+                int quantidade = jComboBoxCategoriasTipo.getItemCount();
         
-        jComboBoxAtividadesTipo.addItem(Inserir);
-        int quantidade = jComboBoxAtividadesTipo.getItemCount();
+                bd.insereDadosCategoria(conn,quantidade++, Inserir);
+            }   
+        }
+        else
+        {
+            jComboBoxCategoriasTipo.addItem(Inserir);
+            int quantidade = jComboBoxCategoriasTipo.getItemCount();
         
-        bd.insereDadosCategoria(conn,quantidade++, Inserir);
+            bd.insereDadosCategoria(conn,quantidade++, Inserir);
+        }
+                        
+        jTextFieldCategoriaInserir.setText(null);
         
         
     }//GEN-LAST:event_buttonInserirCategoriaActionPerformed
@@ -181,15 +207,15 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
             ResultSet rs  = comandoSql.executeQuery(sql);
                 
             // loop no resultado
-            jComboBoxAtividadesTipo.removeAllItems();
+            jComboBoxCategoriasTipo.removeAllItems();
             while (rs.next()) {
                 
                 //System.out.println(rs.getInt("codigo") +  "\t" + 
                  //                 rs.getString("categoria")); 
-                jComboBoxAtividadesTipo.addItem(rs.getString("categoria"));
+                jComboBoxCategoriasTipo.addItem(rs.getString("categoria"));
 
             }
-            jComboBoxAtividadesTipo.updateUI();
+            jComboBoxCategoriasTipo.updateUI();
              
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -197,18 +223,16 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         
     }
     
-    private void jButtonVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisualizarActionPerformed
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        jTextFieldCategoriaInserir.setText(null);
         
-       jComboBoxAtividadesTipo.removeAllItems();
-        
-    }//GEN-LAST:event_jButtonVisualizarActionPerformed
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCancelarGategoria;
     private javax.swing.JButton buttonInserirCategoria;
-    private javax.swing.JButton jButtonVisualizar;
-    private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
+    private javax.swing.JComboBox<String> jComboBoxCategoriasTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -87,9 +87,6 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         menuCategoriasAlterar = new javax.swing.JMenuItem();
         menuCategoriasRemover = new javax.swing.JMenuItem();
         menuCategoriasRelatorio = new javax.swing.JMenuItem();
-        menuUsuario = new javax.swing.JMenu();
-        menuUsuarioCadastrar = new javax.swing.JMenuItem();
-        menuUsuarioAlterar = new javax.swing.JMenuItem();
         menuAjuda = new javax.swing.JMenu();
         menuAjudaSobre = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
@@ -204,16 +201,6 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         menuCategorias.add(menuCategoriasRelatorio);
 
         menuPrincipal.add(menuCategorias);
-
-        menuUsuario.setText("Usuários");
-
-        menuUsuarioCadastrar.setText("Cadastrar");
-        menuUsuario.add(menuUsuarioCadastrar);
-
-        menuUsuarioAlterar.setText("Alterar");
-        menuUsuario.add(menuUsuarioAlterar);
-
-        menuPrincipal.add(menuUsuario);
 
         menuAjuda.setText("Ajuda");
 
@@ -437,8 +424,5 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuCategoriasRemover;
     private javax.swing.JMenuBar menuPrincipal;
     private javax.swing.JMenu menuSair;
-    private javax.swing.JMenu menuUsuario;
-    private javax.swing.JMenuItem menuUsuarioAlterar;
-    private javax.swing.JMenuItem menuUsuarioCadastrar;
     // End of variables declaration//GEN-END:variables
 }

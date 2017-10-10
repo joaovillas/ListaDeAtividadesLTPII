@@ -7,7 +7,7 @@ local varchar(50),
 descricao varchar(500)
 );
 
-create table Categorias(
+create table Categoria(
 codigo integer not null primary key autoincrement,
 categoria varchar(30) not null
 );

@@ -5,17 +5,25 @@
  */
 package Categorias;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import sqlite.SQLiteJDBCDriverConnection;
+
 /**
  *
  * @author Admin
  */
 public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
-
+SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+    Connection conn = bd.connect();
     /**
      * Creates new form JInternalFrameInserir
      */
     public JIFrameCategoriasRemover() {
         initComponents();
+        this.selecionaDadosCategoria(conn);
     }
 
     /**
@@ -42,6 +50,11 @@ public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
         jLabel2.setText("Informe a categoria que irá remover:");
 
         buttonRemoverCategoria.setText("Remover");
+        buttonRemoverCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRemoverCategoriaActionPerformed(evt);
+            }
+        });
 
         jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
 
@@ -92,6 +105,46 @@ public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void selecionaDadosCategoria(Connection conn) {
+
+        String sql = "SELECT codigo, categoria "
+                + "FROM Categoria;";
+
+        try {
+
+            Statement comandoSql = conn.createStatement();
+
+            ResultSet rs = comandoSql.executeQuery(sql);
+
+            // loop no resultado
+            jComboBoxAtividadesTipo.removeAllItems();
+            while (rs.next()) {
+
+                //System.out.println(rs.getInt("codigo") +  "\t" + 
+                //                 rs.getString("categoria")); 
+                jComboBoxAtividadesTipo.addItem(rs.getString("categoria"));
+
+            }
+            jComboBoxAtividadesTipo.updateUI();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    private void buttonRemoverCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoverCategoriaActionPerformed
+        int ItemSelecionado = jComboBoxAtividadesTipo.getSelectedIndex();
+        int tudo = jComboBoxAtividadesTipo.getItemCount();
+        if (tudo>0)
+        {
+            jComboBoxAtividadesTipo.removeItemAt(ItemSelecionado);
+        }
+        else
+        {
+            System.out.println("Tudo Excluido");
+        }
+        
+    }//GEN-LAST:event_buttonRemoverCategoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
