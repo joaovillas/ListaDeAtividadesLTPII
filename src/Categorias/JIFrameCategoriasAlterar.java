@@ -14,6 +14,7 @@ import Categorias.JIFrameCategoriasInserir;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -118,6 +119,17 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvar1ActionPerformed
+   
+        String nome_antigo = (String) jComboBoxCategoriasTipo.getSelectedItem();
+        String nome_novo = jTextFieldAlterar1.getText();
+        
+        System.out.println(nome_antigo);
+        System.out.println(nome_novo);
+        
+        SQLiteJDBCDriverConnection.alteraDadosCategoria(conn, nome_novo, nome_antigo);
+        JOptionPane.showMessageDialog(null, "Categoria alterada de : "+nome_antigo+" para: "+nome_novo);
+        
+        
         
     }//GEN-LAST:event_jButtonSalvar1ActionPerformed
 public void selecionaDadosCategoria(Connection conn) {

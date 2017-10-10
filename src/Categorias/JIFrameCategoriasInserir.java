@@ -5,14 +5,12 @@
  */
 package Categorias;
 
-import java.awt.TextArea;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import sqlite.ModeloCategorias;
 import sqlite.SQLiteJDBCDriverConnection;
 
 /**

@@ -5,17 +5,24 @@
  */
 package Categorias;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import sqlite.SQLiteJDBCDriverConnection;
+
 /**
  *
  * @author Admin
  */
 public class JIFrameCategoriasRelatorios extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form JInternalFrameInserir
-     */
+    SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();    
+        Connection conn = bd.connect();
     public JIFrameCategoriasRelatorios() {
         initComponents();
+        this.selecionaDadosCategoria(conn);
     }
 
     /**
@@ -35,16 +42,30 @@ public class JIFrameCategoriasRelatorios extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Categorias / Relatórios");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
-                "Tipo de Categoria"
+                "Categorias:"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -53,16 +74,57 @@ public class JIFrameCategoriasRelatorios extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        jTable1.updateUI();
+    }//GEN-LAST:event_formInternalFrameActivated
+    
+       public  void selecionaDadosCategoria (Connection conn) {
+        
+        String sql = "SELECT codigo, categoria "
+                     + "FROM Categoria;";
+        
+        
+        try {
+            
+            Statement comandoSql = conn.createStatement();
+            
+            ResultSet rs  = comandoSql.executeQuery(sql);
+                
+            // loop no resultado
+           
+            while (rs.next()) {
+                
+                //System.out.println(rs.getInt("codigo") +  "\t" + 
+                 //                 rs.getString("categoria")); 
+                DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
+                String aux = rs.getString("categoria"); 
+                val.addRow(new String[] {aux});
+
+            }
+           jTable1.updateUI();
+             
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

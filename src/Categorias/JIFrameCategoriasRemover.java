@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import sqlite.SQLiteJDBCDriverConnection;
 
 /**
@@ -16,8 +17,10 @@ import sqlite.SQLiteJDBCDriverConnection;
  * @author Admin
  */
 public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
-SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+
+    SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
     Connection conn = bd.connect();
+
     /**
      * Creates new form JInternalFrameInserir
      */
@@ -133,17 +136,13 @@ public void selecionaDadosCategoria(Connection conn) {
 
     }
     private void buttonRemoverCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoverCategoriaActionPerformed
-        int ItemSelecionado = jComboBoxAtividadesTipo.getSelectedIndex();
-        int tudo = jComboBoxAtividadesTipo.getItemCount();
-        if (tudo>0)
-        {
-            jComboBoxAtividadesTipo.removeItemAt(ItemSelecionado);
-        }
-        else
-        {
-            System.out.println("Tudo Excluido");
-        }
-        
+
+        String excluir = (String) jComboBoxAtividadesTipo.getSelectedItem();
+        System.out.println(excluir);
+        SQLiteJDBCDriverConnection.deletarDadosCategoria(conn, excluir);
+        jComboBoxAtividadesTipo.removeItem(excluir);
+        JOptionPane.showMessageDialog(null, "Apagado com Sucesso");
+
     }//GEN-LAST:event_buttonRemoverCategoriaActionPerformed
 
 

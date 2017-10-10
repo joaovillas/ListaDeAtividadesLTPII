@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import Categorias.JIFrameCategoriasInserir;
-import javax.swing.JComboBox;
 
 public class SQLiteJDBCDriverConnection {
     
@@ -204,26 +202,41 @@ public class SQLiteJDBCDriverConnection {
         }
         
     }
-    public static void visualizarCategoria (Connection conn, int codigo, String categoria){
+     public static void deletarDadosCategoria (Connection conn, String categoria){
+        
+        String sql = "DELETE FROM Categoria WHERE categoria=?";
+        
+        try{
+                PreparedStatement pstmt = conn.prepareStatement(sql); 
+                
+                pstmt.setString(1, categoria);
+                pstmt.executeUpdate();
+        
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
         
     }
-    
 
-    /*public static void testar() {
+     public static void alteraDadosCategoria (Connection conn, String novo_nome , String categoria){
         
-        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+        String sql = "UPDATE Categoria SET categoria=? WHERE categoria = ?";
         
-        Connection conn = bd.connect();
+        try{
+                PreparedStatement pstmt = conn.prepareStatement(sql); 
+                
+                pstmt.setString(1, novo_nome);
+                pstmt.setString(2, categoria);
+                
+                pstmt.executeUpdate();
         
-        bd.criaTabelaAtividade(conn);
-        
-        bd.insereDadosAtividade(conn, 0, "01","joao","33/33/3333","salvador","testando");
-        
-        bd.insereDadosAtividade(conn, 1, "02","victor","44/44/4444","salvador","testando2");
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
         
     }
-*/
-
+     
+     
     public void criaTabelaCategoria(Connection conn) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

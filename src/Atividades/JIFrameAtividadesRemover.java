@@ -134,7 +134,7 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
        
         int matricula = Integer.parseInt(jTextFieldAtividadesMatricula.getText());
             
-        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+            SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
             Connection conn =  bd.connect();
             SQLiteJDBCDriverConnection.deletarDadosAtividade(conn, matricula);
     }//GEN-LAST:event_jButtonAtividadesRemoverActionPerformed
