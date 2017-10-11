@@ -146,7 +146,7 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
         SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
         Connection conn = bd.connect();
         this.selecionaDadosCategoria(conn);
-        
+        jTextFieldAlterar1.requestFocus();
     }//GEN-LAST:event_jButtonSalvar1ActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated

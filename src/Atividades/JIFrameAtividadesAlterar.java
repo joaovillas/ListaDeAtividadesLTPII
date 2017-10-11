@@ -40,7 +40,6 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
         jTextFieldAtividadesLocal = new javax.swing.JTextField();
         jLabelDescricao = new javax.swing.JLabel();
         jButtonAtividadesAlterar = new javax.swing.JButton();
-        jButtonAtividadesCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaAtividadesDescricao = new javax.swing.JTextArea();
         jButtonLimpar = new javax.swing.JButton();
@@ -80,8 +79,6 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonAtividadesCancelar.setText("Cancelar");
-
         jTextAreaAtividadesDescricao.setColumns(20);
         jTextAreaAtividadesDescricao.setRows(5);
         jScrollPane1.setViewportView(jTextAreaAtividadesDescricao);
@@ -98,9 +95,7 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonAtividadesAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAtividadesCancelar))
+                        .addComponent(jButtonLimpar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -151,10 +146,9 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
                     .addComponent(jLabelDescricao))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAtividadesCancelar)
                     .addComponent(jButtonLimpar)
                     .addComponent(jButtonAtividadesAlterar))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -176,7 +170,7 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
         Connection conn =  bd.connect();
         SQLiteJDBCDriverConnection.alteraDadosAtividade(conn, nome, data, local, desc, matricula);
             
-            
+       jTextFieldAtividadesNome.requestFocus();
             
     }//GEN-LAST:event_jButtonAtividadesAlterarActionPerformed
     
@@ -184,7 +178,6 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtividadesAlterar;
-    private javax.swing.JButton jButtonAtividadesCancelar;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JLabel jLabelData;
     private javax.swing.JLabel jLabelDescricao;

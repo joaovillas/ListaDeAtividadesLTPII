@@ -44,6 +44,23 @@ public class JIFrameAtividadesRelatoriosCategoria extends javax.swing.JInternalF
         setMaximizable(true);
         setResizable(true);
         setTitle("Atividades / Relatórios");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel1.setText("Selecione a categoria a ser exibida:");
 
@@ -128,6 +145,14 @@ public class JIFrameAtividadesRelatoriosCategoria extends javax.swing.JInternalF
         
         
     }//GEN-LAST:event_jButtonExibirActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+         SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();    
+        Connection conn = bd.connect();
+        this.selecionaDadosCategoria(conn);
+        
+    }//GEN-LAST:event_formInternalFrameActivated
     
     public void selectDadosAtividades(Connection conn){
     

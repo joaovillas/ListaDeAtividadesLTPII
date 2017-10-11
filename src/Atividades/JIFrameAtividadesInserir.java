@@ -247,7 +247,8 @@ public void selecionaDadosCategoria(Connection conn) {
             jTextFieldAtividadesData.setText(null);
             jTextFieldAtividadesLocal.setText(null);
             jTextAreaAtividadesDescricao.setText(null);
-
+            
+            jTextFieldAtividadesMatricula.requestFocus();
         }
     }//GEN-LAST:event_jButtonAtividadesInserirActionPerformed
 

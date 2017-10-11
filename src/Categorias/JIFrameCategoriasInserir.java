@@ -164,6 +164,7 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
                 int quantidade = jComboBoxCategoriasTipo.getItemCount();
         
                 bd.insereDadosCategoria(conn,quantidade++, Inserir);
+                JOptionPane.showMessageDialog(null, "Categoria inserida.");
             }   
         }
         else
@@ -172,10 +173,12 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
             int quantidade = jComboBoxCategoriasTipo.getItemCount();
         
             bd.insereDadosCategoria(conn,quantidade++, Inserir);
+            JOptionPane.showMessageDialog(null, "Categoria inserida.");
         }
                         
         jTextFieldCategoriaInserir.setText(null);
         
+        jTextFieldCategoriaInserir.requestFocus();
         
     }//GEN-LAST:event_buttonInserirCategoriaActionPerformed
    
