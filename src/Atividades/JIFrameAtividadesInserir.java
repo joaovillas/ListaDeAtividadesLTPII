@@ -254,12 +254,6 @@ public void selecionaDadosCategoria(Connection conn) {
             SQLiteJDBCDriverConnection.insereDadosAtividade(conn, matricula, nome, categoria, data, local, desc);
 
             JOptionPane.showMessageDialog(null, "Atividade inserida com sucesso");
-            System.out.println("Matricula: " + matricula);
-            System.out.println("Nome: " + nome);
-            System.out.println("Categoria: "+ categoria);
-            System.out.println("Data: " + data);
-            System.out.println("Local: " + local);
-            System.out.println("Descricao: " + desc);
 
             jTextFieldAtividadesMatricula.setText(null);
             jTextFieldAtividadesNome.setText(null);
