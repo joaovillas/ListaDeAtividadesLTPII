@@ -85,7 +85,7 @@ public class SQLiteJDBCDriverConnection {
         }
     }
     
-    public static void alteraDadosAtividade (Connection conn, String nome, String data, String local, String descricao , int matricula){
+    public static void alteraDadosAtividade (Connection conn, String nome, String data, String local, String descricao , String matricula){
         
         String sql = "UPDATE Atividade SET nome= ?,data=? ,local = ? ,descricao =? WHERE matricula = ?";
         
@@ -96,7 +96,7 @@ public class SQLiteJDBCDriverConnection {
                 pstmt.setString(2, data);
                 pstmt.setString(3, local);
                 pstmt.setString(4, descricao);
-                pstmt.setInt(5, matricula);
+                pstmt.setString(5, matricula);
                 pstmt.executeUpdate();
         
         }catch(SQLException e){
@@ -107,14 +107,14 @@ public class SQLiteJDBCDriverConnection {
     
     
     
-    public static void deletarDadosAtividade (Connection conn, int matricula){
+    public static void deletarDadosAtividade (Connection conn, String matricula){
         
         String sql = "DELETE FROM Atividade WHERE matricula=?";
         
         try{
                 PreparedStatement pstmt = conn.prepareStatement(sql); 
                 
-                pstmt.setInt(1, matricula);
+                pstmt.setString(1, matricula);
                 pstmt.executeUpdate();
         
         }catch(SQLException e){

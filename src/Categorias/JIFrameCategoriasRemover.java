@@ -42,7 +42,6 @@ public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         buttonRemoverCategoria = new javax.swing.JButton();
         jComboBoxAtividadesTipo = new javax.swing.JComboBox<>();
-        jButtonCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -78,8 +77,6 @@ public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
 
         jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
 
-        jButtonCancelar.setText("Cancelar");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,9 +90,7 @@ public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
                         .addComponent(jComboBoxAtividadesTipo, 0, 129, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonRemoverCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonRemoverCategoria)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,10 +101,8 @@ public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jComboBoxAtividadesTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonRemoverCategoria)
-                    .addComponent(jButtonCancelar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(buttonRemoverCategoria)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,7 +168,6 @@ public void selecionaDadosCategoria(Connection conn) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonRemoverCategoria;
-    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

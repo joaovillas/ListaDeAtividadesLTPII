@@ -9,7 +9,6 @@ import java.sql.Connection;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import sqlite.SQLiteJDBCDriverConnection;
-import Categorias.JIFrameCategoriasInserir;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;

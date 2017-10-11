@@ -6,6 +6,7 @@
 package Atividades;
 
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 import sqlite.SQLiteJDBCDriverConnection;
 
 /**
@@ -45,6 +46,23 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Remover Atividades");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabelMatricula.setText("Matrícula:");
 
@@ -136,13 +154,24 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
 
     private void jButtonAtividadesRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadesRemoverActionPerformed
        
-        int matricula = Integer.parseInt(jTextFieldAtividadesMatricula.getText());
+        String matricula = jTextFieldAtividadesMatricula.getText();
             
+        if(!jTextFieldAtividadesMatricula.getText().equalsIgnoreCase("")){    
             SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
             Connection conn =  bd.connect();
             SQLiteJDBCDriverConnection.deletarDadosAtividade(conn, matricula);
             
+            JOptionPane.showMessageDialog(null, "Apagado com Sucesso");
+            
             jTextFieldAtividadesMatricula.requestFocus();
+            jTextFieldAtividadesData.setText(null);
+            jTextFieldAtividadesLocal.setText(null);
+            jTextFieldAtividadesMatricula.setText(null);
+            jTextFieldAtividadesNome.setText(null);
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha os campos corretamente");
+        }
+            
     }//GEN-LAST:event_jButtonAtividadesRemoverActionPerformed
 
     private void jTextFieldAtividadesNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAtividadesNomeActionPerformed
@@ -152,6 +181,14 @@ public class JIFrameAtividadesRemover extends javax.swing.JInternalFrame {
     private void jTextFieldAtividadesDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAtividadesDataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAtividadesDataActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+            jTextFieldAtividadesMatricula.requestFocus();
+            jTextFieldAtividadesData.setText(null);
+            jTextFieldAtividadesLocal.setText(null);
+            jTextFieldAtividadesMatricula.setText(null);
+            jTextFieldAtividadesNome.setText(null);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

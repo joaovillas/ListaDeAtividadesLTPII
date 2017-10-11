@@ -77,7 +77,7 @@ public class JIFrameAtividadesRelatoriosData extends javax.swing.JInternalFrame 
 
             },
             new String [] {
-                "Matrícula", "Data", "Categoria", "Descrição"
+                "Matrícula", "Nome", "Data", "Categoria", "Descrição"
             }
         ));
         jTableRelatorioData.setEnabled(false);
@@ -155,7 +155,7 @@ public class JIFrameAtividadesRelatoriosData extends javax.swing.JInternalFrame 
 
     public void selectDadosAtividadesCategoria(Connection conn , String date){
     
-        String sql = "SELECT matricula,categoria ,data ,descricao "
+        String sql = "SELECT matricula,categoria ,data ,descricao,nome "
                      + "FROM Atividade Where data = '"+date+"' ;";
         
         DefaultTableModel val = (DefaultTableModel) jTableRelatorioData.getModel();
@@ -167,12 +167,12 @@ public class JIFrameAtividadesRelatoriosData extends javax.swing.JInternalFrame 
                                  
                        
             while(rs.next()){
-                
+                String nome = rs.getString("nome");
                 String matricula = rs.getString("matricula");
                 String categoria = rs.getString("categoria"); 
                 String data = rs.getString("data");
                 String descricao = rs.getString("descricao");
-                val.addRow(new String[] {matricula,data,categoria,descricao});
+                val.addRow(new String[] {matricula,nome,data,categoria,descricao});
             }
             
             

@@ -136,8 +136,11 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         
        // Connection conn = bd.connect();
         
-        //bd.criaTabelaCategoria(conn);
+        
+
+       
         String Inserir = jTextFieldCategoriaInserir.getText().toString(); //Lazer
+        if(!jTextFieldCategoriaInserir.getText().equalsIgnoreCase("")){
         int  i = 0;
         int cont = jComboBoxCategoriasTipo.getItemCount();  //3
         int x =1;
@@ -175,7 +178,9 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
             bd.insereDadosCategoria(conn,quantidade++, Inserir);
             JOptionPane.showMessageDialog(null, "Categoria inserida.");
         }
-                        
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!!");
+        }              
         jTextFieldCategoriaInserir.setText(null);
         
         jTextFieldCategoriaInserir.requestFocus();

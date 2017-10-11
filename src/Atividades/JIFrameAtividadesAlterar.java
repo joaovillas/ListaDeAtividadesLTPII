@@ -6,6 +6,7 @@
 package Atividades;
 
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 import sqlite.SQLiteJDBCDriverConnection;
 
 /**
@@ -50,6 +51,23 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Alterar Atividades");
         setToolTipText("");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabelMatricula.setText("Matrícula:");
 
@@ -84,6 +102,11 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTextAreaAtividadesDescricao);
 
         jButtonLimpar.setText("Limpar");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,7 +168,7 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDescricao))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonLimpar)
                     .addComponent(jButtonAtividadesAlterar))
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -160,7 +183,10 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
 
     private void jButtonAtividadesAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadesAlterarActionPerformed
 
-        int matricula = Integer.parseInt(jTextFieldAtividadesMatricula.getText());
+        String matricula = jTextFieldAtividadesMatricula.getText();
+       if (!(jTextFieldAtividadesMatricula.getText().equalsIgnoreCase("")) && !(jTextFieldAtividadesNome.getText().equalsIgnoreCase(""))
+       && !(jTextFieldAtividadesData.getText().equalsIgnoreCase("  /  /    ")) && !(jTextFieldAtividadesLocal.getText().equalsIgnoreCase("")) 
+       && !jTextAreaAtividadesDescricao.getText().equalsIgnoreCase("") ) {
         String nome = jTextFieldAtividadesNome.getText();
         String data = jTextFieldAtividadesData.getText();
         String local = jTextFieldAtividadesLocal.getText();
@@ -169,10 +195,36 @@ public class JIFrameAtividadesAlterar extends javax.swing.JInternalFrame {
         SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
         Connection conn =  bd.connect();
         SQLiteJDBCDriverConnection.alteraDadosAtividade(conn, nome, data, local, desc, matricula);
-            
+        
+        JOptionPane.showMessageDialog(null, "Atividade inserida com sucesso");
+        
        jTextFieldAtividadesNome.requestFocus();
             
+        jTextAreaAtividadesDescricao.setText(null);
+        jTextFieldAtividadesData.setText(null);
+        jTextFieldAtividadesLocal.setText(null);
+        jTextFieldAtividadesMatricula.setText(null);
+        jTextFieldAtividadesNome.setText(null);
+       }else{
+           JOptionPane.showMessageDialog(null, "Preencha os campos corretamente");
+       }
     }//GEN-LAST:event_jButtonAtividadesAlterarActionPerformed
+    
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        jTextAreaAtividadesDescricao.setText(null);
+        jTextFieldAtividadesData.setText(null);
+        jTextFieldAtividadesLocal.setText(null);
+        jTextFieldAtividadesMatricula.setText(null);
+        jTextFieldAtividadesNome.setText(null);
+    }//GEN-LAST:event_formInternalFrameActivated
+
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        jTextAreaAtividadesDescricao.setText(null);
+        jTextFieldAtividadesData.setText(null);
+        jTextFieldAtividadesLocal.setText(null);
+        jTextFieldAtividadesMatricula.setText(null);
+        jTextFieldAtividadesNome.setText(null);
+    }//GEN-LAST:event_jButtonLimparActionPerformed
     
     
 

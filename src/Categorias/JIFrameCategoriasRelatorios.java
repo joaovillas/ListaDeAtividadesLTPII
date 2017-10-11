@@ -91,7 +91,7 @@ public class JIFrameCategoriasRelatorios extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-       
+    
      
     int x = jTable1.getRowCount();
         int y=0;

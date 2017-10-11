@@ -139,6 +139,7 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
         String nome_antigo = (String) jComboBoxCategoriasTipo.getSelectedItem();
         String nome_novo = jTextFieldAlterar1.getText();
         
+        if(!jTextFieldAlterar1.getText().equalsIgnoreCase("")){
         SQLiteJDBCDriverConnection.alteraDadosCategoria(conn, nome_novo, nome_antigo);
         JOptionPane.showMessageDialog(null, "Categoria alterada de : "+nome_antigo+" para: "+nome_novo);
         
@@ -147,6 +148,9 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
         Connection conn = bd.connect();
         this.selecionaDadosCategoria(conn);
         jTextFieldAlterar1.requestFocus();
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!");
+        }
     }//GEN-LAST:event_jButtonSalvar1ActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
