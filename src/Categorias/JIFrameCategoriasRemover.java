@@ -49,6 +49,23 @@ public class JIFrameCategoriasRemover extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Categorias / Remover");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel2.setText("Informe a categoria que irá remover:");
 
@@ -138,12 +155,22 @@ public void selecionaDadosCategoria(Connection conn) {
     private void buttonRemoverCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoverCategoriaActionPerformed
 
         String excluir = (String) jComboBoxAtividadesTipo.getSelectedItem();
-        System.out.println(excluir);
         SQLiteJDBCDriverConnection.deletarDadosCategoria(conn, excluir);
         jComboBoxAtividadesTipo.removeItem(excluir);
         JOptionPane.showMessageDialog(null, "Apagado com Sucesso");
-
+         
+        
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+        Connection conn = bd.connect();
+        this.selecionaDadosCategoria(conn);
     }//GEN-LAST:event_buttonRemoverCategoriaActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+        Connection conn = bd.connect();
+        this.selecionaDadosCategoria(conn);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

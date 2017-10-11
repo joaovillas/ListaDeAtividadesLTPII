@@ -63,6 +63,7 @@ public class JIFrameAtividadesRelatoriosCategoria extends javax.swing.JInternalF
                 "Matricula", "Categoria", "Data", "Descrição"
             }
         ));
+        jTableRelatorioCategoria.setEnabled(false);
         jScrollPane1.setViewportView(jTableRelatorioCategoria);
 
         jButtonExibir.setText("Exibir");
@@ -124,10 +125,42 @@ public class JIFrameAtividadesRelatoriosCategoria extends javax.swing.JInternalF
 
         String escolha = (String) jComboBoxRelatorioCategoria.getSelectedItem();
         //System.out.println(escolha);
-        this.selecionaDadosAtividade(conn,escolha);
+        
         
     }//GEN-LAST:event_jButtonExibirActionPerformed
-
+    
+    public void selectDadosAtividades(Connection conn){
+    
+        String sql = "SELECT matricula,categoria ,data ,descricao  "
+                     + "FROM Atividade Where categoria = ? ";
+        
+        try{
+            
+            Statement comandoSql = conn.createStatement();
+            ResultSet rs  =comandoSql.executeQuery(sql);
+            
+              
+        DefaultTableModel val = (DefaultTableModel) jTableRelatorioCategoria.getModel();
+                String aux = rs.getString("categoria"); 
+                val.addRow(new String[] {aux});
+                 
+            
+            
+            while(rs.next()){
+                
+            }
+            
+            
+            
+        }catch(SQLException e){
+            
+        }
+        
+    }    
+    
+    
+    
+    
     public void  selecionaDadosCategoria (Connection conn) {
         
         String sql = "SELECT codigo, categoria "
@@ -157,42 +190,8 @@ public class JIFrameAtividadesRelatoriosCategoria extends javax.swing.JInternalF
         
     }
     
-    public  void selecionaDadosAtividade (Connection conn,String escolha) {
-        
-        String sql = "SELECT matricula,categoria ,data ,descricao  "
-                     + "FROM Atividade Where categoria ='?'";
-        
-        
-        try {
-            
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            
-            
-            Statement comandoSql = conn.createStatement();
-            
-            ResultSet rs  = comandoSql.executeQuery(sql);
-            
-//            pstmt.setString(1,escolha);
-            
-            while (rs.next()) {
-           
-                
-                DefaultTableModel val = (DefaultTableModel) jTableRelatorioCategoria.getModel();
-                String matricula = rs.getString("matricula"); 
-                String categoria = rs.getString("categoria");
-                String data = rs.getString("data");
-                String descricao = rs.getString("descricao");
-                System.out.println(matricula+categoria+data+descricao);
-                val.addRow(new String[] {matricula , categoria , data , descricao});
-
-            }
-           jTableRelatorioCategoria.updateUI();
-           
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        
-    }
+   
+    
     
  
     // Variables declaration - do not modify//GEN-BEGIN:variables

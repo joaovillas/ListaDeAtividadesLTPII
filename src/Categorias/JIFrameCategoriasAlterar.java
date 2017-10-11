@@ -6,11 +6,7 @@
 package Categorias;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import sqlite.SQLiteJDBCDriverConnection;
-import Categorias.JIFrameCategoriasInserir;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -54,6 +50,23 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Categorias / Alterar");
         setToolTipText("");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jButtonSalvar1.setText("Salvar");
         jButtonSalvar1.addActionListener(new java.awt.event.ActionListener() {
@@ -118,20 +131,30 @@ public class JIFrameCategoriasAlterar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+  
+    
     private void jButtonSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvar1ActionPerformed
    
         String nome_antigo = (String) jComboBoxCategoriasTipo.getSelectedItem();
         String nome_novo = jTextFieldAlterar1.getText();
         
-        System.out.println(nome_antigo);
-        System.out.println(nome_novo);
-        
         SQLiteJDBCDriverConnection.alteraDadosCategoria(conn, nome_novo, nome_antigo);
         JOptionPane.showMessageDialog(null, "Categoria alterada de : "+nome_antigo+" para: "+nome_novo);
         
-        
+         jTextFieldAlterar1.setText(null);
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+        Connection conn = bd.connect();
+        this.selecionaDadosCategoria(conn);
         
     }//GEN-LAST:event_jButtonSalvar1ActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        jTextFieldAlterar1.setText(null);
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+        Connection conn = bd.connect();
+        this.selecionaDadosCategoria(conn);
+    }//GEN-LAST:event_formInternalFrameActivated
 public void selecionaDadosCategoria(Connection conn) {
 
         String sql = "SELECT codigo, categoria "

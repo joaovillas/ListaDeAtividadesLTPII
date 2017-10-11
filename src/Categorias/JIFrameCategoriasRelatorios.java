@@ -91,7 +91,17 @@ public class JIFrameCategoriasRelatorios extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        jTable1.updateUI();
+       
+     
+    int x = jTable1.getRowCount();
+        int y=0;
+        while (y<x)
+        {
+            jTable1.selectAll();
+        ((DefaultTableModel) jTable1.getModel()).removeRow(jTable1.getSelectedRow());
+        y++;
+        }
+        this.selecionaDadosCategoria(conn);
     }//GEN-LAST:event_formInternalFrameActivated
     
        public  void selecionaDadosCategoria (Connection conn) {
@@ -107,12 +117,11 @@ public class JIFrameCategoriasRelatorios extends javax.swing.JInternalFrame {
             ResultSet rs  = comandoSql.executeQuery(sql);
                 
             // loop no resultado
-           
+           DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
             while (rs.next()) {
                 
-                //System.out.println(rs.getInt("codigo") +  "\t" + 
-                 //                 rs.getString("categoria")); 
-                DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
+                 
+                
                 String aux = rs.getString("categoria"); 
                 val.addRow(new String[] {aux});
 

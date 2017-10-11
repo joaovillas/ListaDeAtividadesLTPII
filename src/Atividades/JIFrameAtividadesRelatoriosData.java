@@ -49,15 +49,13 @@ public class JIFrameAtividadesRelatoriosData extends javax.swing.JInternalFrame 
 
         jTableRelatorioData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Código", "Data", "Categoria", "Descrição"
+                "Matrícula", "Data", "Categoria", "Descrição"
             }
         ));
+        jTableRelatorioData.setEnabled(false);
         jScrollPane1.setViewportView(jTableRelatorioData);
 
         jButtonExibir.setText("Exibir");

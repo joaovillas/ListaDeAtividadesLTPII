@@ -18,7 +18,7 @@ import Categorias.JIFrameCategoriasRelatorios;
 
 import Ajuda.JInternalFrameSobre;
 
-import javax.swing.JInternalFrame;
+
 
 /**
  *
@@ -72,6 +72,8 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jDesktopPaneTelaPrincipal = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         menuPrincipal = new javax.swing.JMenuBar();
@@ -90,6 +92,10 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
         menuAjuda = new javax.swing.JMenu();
         menuAjudaSobre = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
@@ -408,6 +414,8 @@ public class JFrameTelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPaneTelaPrincipal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenuItem menuAjudaSobre;
     private javax.swing.JMenuItem menuAtivdadesRemover;

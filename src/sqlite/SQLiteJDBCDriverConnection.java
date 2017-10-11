@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 
 public class SQLiteJDBCDriverConnection {
@@ -123,7 +124,25 @@ public class SQLiteJDBCDriverConnection {
     }
     
     
-    
+    public static void selectDadosAtividade (Connection conn, String categoria){
+        
+        String sql = "SELECT matricula,categoria ,data ,descricao  "
+                     + "FROM Atividade Where categoria = ? ";
+        
+      
+        
+        
+        try{
+                PreparedStatement pstmt = conn.prepareStatement(sql); 
+                
+                pstmt.setString(1, categoria);
+                
+        
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
     
     
     

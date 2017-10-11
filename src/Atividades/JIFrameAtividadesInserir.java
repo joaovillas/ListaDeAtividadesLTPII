@@ -52,8 +52,6 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
         jTextFieldAtividadesLocal = new javax.swing.JTextField();
         jLabelDescricao = new javax.swing.JLabel();
         jButtonAtividadesInserir = new javax.swing.JButton();
-        jTextFieldAtividadesCodigo = new javax.swing.JTextField();
-        jLabelCodigo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaAtividadesDescricao = new javax.swing.JTextArea();
         jButtonLimpar = new javax.swing.JButton();
@@ -109,10 +107,6 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextFieldAtividadesCodigo.setEditable(false);
-
-        jLabelCodigo.setText("Código:");
-
         jTextAreaAtividadesDescricao.setColumns(20);
         jTextAreaAtividadesDescricao.setRows(5);
         jScrollPane1.setViewportView(jTextAreaAtividadesDescricao);
@@ -138,13 +132,14 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
                         .addComponent(jLabelNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldAtividadesNome))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAtividadesInserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonLimpar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelDescricao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelTipo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -156,16 +151,11 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelLocal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonAtividadesInserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonLimpar)))
+                                .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelDescricao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,18 +179,14 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldAtividadesLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelDescricao)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonAtividadesInserir)
-                        .addComponent(jButtonLimpar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelCodigo)
-                        .addComponent(jTextFieldAtividadesCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAtividadesInserir)
+                    .addComponent(jButtonLimpar))
                 .addGap(1, 1, 1))
         );
 
@@ -298,7 +284,6 @@ public void selecionaDadosCategoria(Connection conn) {
     private javax.swing.JButton jButtonAtividadesInserir;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JComboBox<String> jComboBoxAtividadesTipo;
-    private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelData;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelLocal;
@@ -307,7 +292,6 @@ public void selecionaDadosCategoria(Connection conn) {
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaAtividadesDescricao;
-    private javax.swing.JTextField jTextFieldAtividadesCodigo;
     private javax.swing.JFormattedTextField jTextFieldAtividadesData;
     private javax.swing.JTextField jTextFieldAtividadesLocal;
     private javax.swing.JTextField jTextFieldAtividadesMatricula;

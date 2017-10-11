@@ -48,7 +48,8 @@ public class TelaLoginSenha extends javax.swing.JFrame {
         setTitle("Login ");
         setMaximumSize(new java.awt.Dimension(343, 207));
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         jPanel1.setMaximumSize(new java.awt.Dimension(343, 207));
         jPanel1.setName(""); // NOI18N
 

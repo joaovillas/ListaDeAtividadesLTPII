@@ -44,8 +44,6 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
         buttonInserirCategoria = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jComboBoxCategoriasTipo = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldCategoriaCodigo = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -82,10 +80,6 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Categorias Existentes:");
 
-        jLabel3.setText("Codigo:");
-
-        jTextFieldCategoriaCodigo.setEditable(false);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,10 +88,7 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCategoriaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buttonInserirCategoria))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -117,16 +108,13 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldCategoriaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jComboBoxCategoriasTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldCategoriaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonInserirCategoria))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(buttonInserirCategoria)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,9 +210,10 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
     }
     
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        // TODO add your handling code here:
-        jTextFieldCategoriaInserir.setText(null);
-        
+       jTextFieldCategoriaInserir.setText(null);
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();    
+        Connection conn = bd.connect();
+        this.selecionaDadosCategoria(conn);
     }//GEN-LAST:event_formInternalFrameActivated
 
 
@@ -233,9 +222,7 @@ public class JIFrameCategoriasInserir extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBoxCategoriasTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCategoriaCodigo;
     private javax.swing.JTextField jTextFieldCategoriaInserir;
     // End of variables declaration//GEN-END:variables
 
