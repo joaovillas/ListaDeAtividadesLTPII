@@ -267,7 +267,8 @@ public void selecionaDadosCategoria(Connection conn) {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-
+        SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();
+            Connection conn = bd.connect();
         jTextFieldAtividadesMatricula.setText(null);
         jTextFieldAtividadesNome.setText(null);
         jComboBoxAtividadesTipo.setSelectedIndex(0);

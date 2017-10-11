@@ -141,49 +141,58 @@ public class JIFrameAtividadesRelatoriosCategoria extends javax.swing.JInternalF
     private void jButtonExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExibirActionPerformed
 
         String escolha = (String) jComboBoxRelatorioCategoria.getSelectedItem();
-        //System.out.println(escolha);
+        limpaTabela();
+        selectDadosAtividadesCategoria(conn, escolha);
         
         
     }//GEN-LAST:event_jButtonExibirActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        // TODO add your handling code here:
-         SQLiteJDBCDriverConnection bd = new SQLiteJDBCDriverConnection();    
-        Connection conn = bd.connect();
-        this.selecionaDadosCategoria(conn);
+        limpaTabela();
         
     }//GEN-LAST:event_formInternalFrameActivated
     
-    public void selectDadosAtividades(Connection conn){
+    public void selectDadosAtividadesCategoria(Connection conn , String cat){
     
-        String sql = "SELECT matricula,categoria ,data ,descricao  "
-                     + "FROM Atividade Where categoria = ? ";
+        String sql = "SELECT matricula,categoria ,data ,descricao "
+                     + "FROM Atividade Where categoria = '"+cat+"' ;";
+        
+        DefaultTableModel val = (DefaultTableModel) jTableRelatorioCategoria.getModel();
         
         try{
             
             Statement comandoSql = conn.createStatement();
             ResultSet rs  =comandoSql.executeQuery(sql);
-            
-              
-        DefaultTableModel val = (DefaultTableModel) jTableRelatorioCategoria.getModel();
-                String aux = rs.getString("categoria"); 
-                val.addRow(new String[] {aux});
-                 
-            
-            
+                                 
+                       
             while(rs.next()){
                 
+                String matricula = rs.getString("matricula");
+                String categoria = rs.getString("categoria"); 
+                String data = rs.getString("data");
+                String descricao = rs.getString("descricao");
+                val.addRow(new String[] {matricula,categoria,data,descricao});
             }
             
             
             
         }catch(SQLException e){
-            
+            System.out.println(e);
         }
         
     }    
     
-    
+    public void limpaTabela(){
+        int x = jTableRelatorioCategoria.getRowCount();
+        int y=0;
+        while (y<x)
+        {
+            jTableRelatorioCategoria.selectAll();
+        ((DefaultTableModel) jTableRelatorioCategoria.getModel()).removeRow(jTableRelatorioCategoria.getSelectedRow());
+        y++;
+        }
+        this.selecionaDadosCategoria(conn);
+    }
     
     
     public void  selecionaDadosCategoria (Connection conn) {
