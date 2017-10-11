@@ -2,6 +2,7 @@ create table Atividade(
 codigo integer not null primary key autoincrement,
 matricula varchar(4) not null,
 nome varchar(20) not null,
+categoria varchar(25),
 data varchar(8),
 local varchar(50),
 descricao varchar(500)

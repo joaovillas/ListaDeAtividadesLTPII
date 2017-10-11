@@ -84,6 +84,11 @@ public class JIFrameAtividadesInserir extends javax.swing.JInternalFrame {
         jLabelNome.setText("Nome:*");
 
         jComboBoxAtividadesTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Lazer", "Trabalho", "Escola", "Faculdade", "Física" }));
+        jComboBoxAtividadesTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxAtividadesTipoActionPerformed(evt);
+            }
+        });
 
         jLabelData.setText("Data:*");
 
@@ -249,6 +254,7 @@ public void selecionaDadosCategoria(Connection conn) {
             
             jTextFieldAtividadesMatricula.requestFocus();
         }
+        
     }//GEN-LAST:event_jButtonAtividadesInserirActionPerformed
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
@@ -279,6 +285,10 @@ public void selecionaDadosCategoria(Connection conn) {
 
 
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void jComboBoxAtividadesTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxAtividadesTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxAtividadesTipoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
